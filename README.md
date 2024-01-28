@@ -6,7 +6,7 @@ Hello! This is my first edit!
 
 ## Self-Introduction
 ### Academic
-Hello, my name is **Brendan Peck**. I am a recent graduate from URI's 4-year *Environmental Science and Management B.S.* and *Biology* B.A. programs. I am now here for 1 final semester to finish off my [*Graduate Certificate of GIS & RS*](https://web.uri.edu/nrs/academics/graduate-certificate-in-gis-and-remote-sensing/).
+Hello, my name is **Brendan Peck**. I am a recent graduate from URI's 4-year *Environmental Science and Management B.S.* and *Biology B.A.* programs. I am now here for 1 final semester to finish off my [*Graduate Certificate of GIS & RS*](https://web.uri.edu/nrs/academics/graduate-certificate-in-gis-and-remote-sensing/).
 > [!WARNING]
 > I will be asking many questions this semester. 
 
