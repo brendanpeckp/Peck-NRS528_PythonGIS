@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem02.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/ALL_FILES.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/Python_Script.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/Python_Script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/Python_Toolbox.pyt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/__MACOSX/._Python_Script.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/__MACOSX/._Python_Script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/__MACOSX/._Python_Toolbox.pyt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../01_introduction/__MACOSX/._README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/2_Basics.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/ALL_FILES.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_3.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_5.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/Step_6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/__MACOSX/._2_Basics.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/__MACOSX/._Step_1.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../class_02_basics/__MACOSX/._Step_2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem02.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem02.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +37,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.Peck_challange02_problem01.executor": "Run",
+    "Python.Peck_challange02_problem02.executor": "Run",
     "Python.Step_1.executor": "Run",
     "Python.Step_2.executor": "Run",
     "Python.Step_3.executor": "Run",
