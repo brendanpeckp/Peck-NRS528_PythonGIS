@@ -82,7 +82,7 @@
 # list_1.extend(list_2)
 # #
 # # # You can also order lists
-# number_list = [1, 3, 4, 2]
+number_list = [1, 3, 4, 2]
 # number_list.sort() #Ascending
 # # print(number_list)
 # # number_list.sort(reverse=True) #Descending
@@ -95,8 +95,8 @@
 # # del number_list[1:2]
 # # print(number_list)
 #
-# number_list.remove(1)
-# print(number_list)
+number_list.remove(1)
+print(number_list)
 #
 # # # Tuples - Like lists but use () instead of [] and can't be changed after creation
 # my_first_tuple = (1, 2, 3)
@@ -104,20 +104,20 @@
 # #
 # # # Tuples are immutable, cannot be changed after creation, try and see:
 # my_first_tuple.append(4)
+# # #
+# # #
+# # # Dictionaries - Used to store values in a key:value pair
+# my_first_dictionary = {'key1':'Hi', 'Key2':'Bye'}
+# print(my_first_dictionary['Key2'])
 # #
-# #
-# # Dictionaries - Used to store values in a key:value pair
-my_first_dictionary = {'key1':'Hi', 'Key2':'Bye'}
-print(my_first_dictionary['Key2'])
-#
 # # You can't access a value or a key using an index:
 # print(my_first_dictionary[0]) #not gonna work
 #
 # # More complex dictionary:
-my_second_dictionary = { 1 : [{'Distance': '23', 'Density':'9'}], 2 : [{'Distance': '50', 'Density':'10'}], 3 : [{'Distance': '12', 'Density':'3'}] }
-print(my_second_dictionary[1])
-print(my_second_dictionary[1][0]['Distance'])
-print(my_second_dictionary[1][0]['Density'])
+# my_second_dictionary = { 1 : [{'Distance': '23', 'Density':'9'}], 2 : [{'Distance': '50', 'Density':'10'}], 3 : [{'Distance': '12', 'Density':'3'}] }
+# print(my_second_dictionary[1])
+# print(my_second_dictionary[1][0]['Distance'])
+# print(my_second_dictionary[1][0]['Density'])
 
 
 ###
