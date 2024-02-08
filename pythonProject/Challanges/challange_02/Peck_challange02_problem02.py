@@ -25,3 +25,4 @@
 # list_a = ['dog', 'cat', 'rabbit', 'hamster', 'gerbil']
 # list_b = ['dog', 'hamster', 'snake']
 # print(list(set(list_a).difference(list_b)))
+## Were both items successful? Yes

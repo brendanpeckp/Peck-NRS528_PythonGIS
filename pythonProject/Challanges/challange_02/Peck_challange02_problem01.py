@@ -9,27 +9,21 @@
 # for i in List1:
 #     if i == 6:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 8:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 12:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 20:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 32:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 46:
 #         List1.remove(i)
-#         print(List1)
 # for i in List1:
 #     if i == 85:
 #         List1.remove(i)
@@ -46,12 +40,12 @@
 # for elem in List1:
 #     if elem > 5:
 #         List1.remove(elem)
-#         print(List1)
 #         for elem in List1:
 #             if elem > 5:
 #                 List1.remove(elem)
-#                 print(List1)
 #                 for elem in List1:
 #                     if elem > 5:
 #                         List1.remove(elem)
 #                         print(List1)
+#
+## Success for both items? Yes for 1. No for 2.

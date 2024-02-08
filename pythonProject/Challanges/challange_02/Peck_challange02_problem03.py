@@ -12,3 +12,5 @@
 # (word_list)
 # ([[x,word_list.count(x)] for x in set(word_list)])
 # print(dict((x,word_list.count(x)) for x in set(word_list)))
+#
+## Was it successful? Yes

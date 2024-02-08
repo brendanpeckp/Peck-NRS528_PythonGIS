@@ -20,3 +20,4 @@ while True:
     age = input("What is your age? ")
     if age == 65:
         break
+## Was it successful? No

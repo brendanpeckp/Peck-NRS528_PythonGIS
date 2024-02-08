@@ -33,3 +33,5 @@ total = 0
 word = char
 def find_value(word):
     return sum(value_list[char] for char in word)
+#
+## Was it successful? No

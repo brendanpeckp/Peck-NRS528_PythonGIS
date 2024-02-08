@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem02.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem02.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,22 +38,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Peck_challange02_problem01.executor": "Run",
-    "Python.Peck_challange02_problem02.executor": "Run",
-    "Python.Peck_challange02_problem03.executor": "Run",
-    "Python.Peck_challange02_problem04.executor": "Run",
-    "Python.Peck_challange02_problem05.executor": "Run",
-    "Python.Step_1.executor": "Run",
-    "Python.Step_2.executor": "Run",
-    "Python.Step_3.executor": "Run",
-    "Python.Step_4.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Peck_challange02_problem01.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Peck_challange02_problem02.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Peck_challange02_problem03.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Peck_challange02_problem04.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Peck_challange02_problem05.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Step_1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Step_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Step_3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Step_4.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Step_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
