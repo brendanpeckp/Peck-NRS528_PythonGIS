@@ -92,7 +92,6 @@ number_list = [1, 3, 4, 2]
 # # del number_list[0]
 # # print(number_list)
 # #
-# # del number_list[1:2]
 # # print(number_list)
 #
 number_list.remove(1)
