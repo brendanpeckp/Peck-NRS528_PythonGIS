@@ -6,14 +6,14 @@
 # For Loops
 
 # # For loop on string
-my_string = 'abcde'
-for i in my_string:
-    print(i)
-
-# For loop on list
-my_list = ['a', 'b', 'c', 'd', 'e']
-for i in my_list:
-    print(i)
+# my_string = 'abcde'
+# for i in my_string:
+#     print(i)
+#
+# # For loop on list
+# my_list = ['a', 'b', 'c', 'd', 'e']
+# for i in my_list:
+#     print(i)
 
 # # For loop on tuple
 # my_tuple = ('a', 'b', 'c', 'd', 'e')
@@ -21,9 +21,9 @@ for i in my_list:
 #     print(i)
 
 # # For loop on dictionary
-# my_dictionary = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
-# for i, j in my_dictionary.items():
-#     print(i, j)
+my_dictionary = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
+for i, j in my_dictionary.items():
+    print(i, j)
 
 
 # If/else/elif
@@ -36,14 +36,14 @@ for i in my_list:
 #     print('Equal to 5')
 # else:
 #     print('Less than 5')
-
-# Using if to catch cases as we loop:
-my_if_list = [1, 2, 3, 4, 5, 6]
-for i in my_if_list:
-    if i % 2 == 0:
-        print(str(i) + ' is even because we can divide it by two')
-    else:
-        print(str(i) + ' is odd because it will not divide by two')
+#
+# # Using if to catch cases as we loop:
+# my_if_list = [1, 2, 3, 4, 5, 6]
+# for i in my_if_list:
+#     if i % 2 == 0:
+#         print(str(i) + ' is even because we can divide it by two')
+#     else:
+#         print(str(i) + ' is odd because it will not divide by two')
 
 
 # While

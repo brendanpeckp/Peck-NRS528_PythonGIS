@@ -5,29 +5,29 @@
 ## ```python
 ## [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
 ## ```
-# List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
-# for i in List1:
-#     if i == 6:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 8:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 12:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 20:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 32:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 46:
-#         List1.remove(i)
-# for i in List1:
-#     if i == 85:
-#         List1.remove(i)
-#         print(List1)
+List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
+for i in List1:
+    if i == 6:
+        List1.remove(i)
+for i in List1:
+    if i == 8:
+        List1.remove(i)
+for i in List1:
+    if i == 12:
+        List1.remove(i)
+for i in List1:
+    if i == 20:
+        List1.remove(i)
+for i in List1:
+    if i == 32:
+        List1.remove(i)
+for i in List1:
+    if i == 46:
+        List1.remove(i)
+for i in List1:
+    if i == 85:
+        List1.remove(i)
+        print(List1)
 ## Item 2
 ## 2. Write this in one line of Python (you do not need to append to a list just print the output).
 ## Attempt 1
@@ -36,16 +36,15 @@
 #     if elem < 5:
 #         print(elem)
 ## Attempt 2
-# List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
-# for elem in List1:
-#     if elem > 5:
-#         List1.remove(elem)
-#         for elem in List1:
-#             if elem > 5:
-#                 List1.remove(elem)
-#                 for elem in List1:
-#                     if elem > 5:
-#                         List1.remove(elem)
-#                         print(List1)
-#
+List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
+for elem in List1:
+    if elem > 5:
+        List1.remove(elem)
+        for elem in List1:
+            if elem > 5:
+                List1.remove(elem)
+                for elem in List1:
+                    if elem > 5:
+                        List1.remove(elem)
+                        print(List1)
 ## Success for both items? Yes for 1. No for 2.

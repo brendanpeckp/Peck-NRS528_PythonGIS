@@ -9,15 +9,7 @@
 ## print "Your age is " + str(age)
 ## ```
 
-# age = range(1, 65)
-# print(list(age))
-# age = input("What is your age? ")
-# # print ("Your age is " + str(age))
-
-age = range(1, 65)
-input(age)
-while True:
-    age = input("What is your age? ")
-    if age == 65:
-        break
-## Was it successful? No
+age = input("What is your age? ") # input means that the code will print and expect user input.
+print("Your age is " + str(age) + ".")
+yrs_till_retirement = 65 - int(age)
+print("You have " + str(yrs_till_retirement) + " years till retirement.")

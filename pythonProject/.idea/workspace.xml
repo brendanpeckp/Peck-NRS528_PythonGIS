@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="" />
+    <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +54,51 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Peck_challange02_problem05">
+    <configuration name="Peck_challange02_problem04" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Challanges/challange_02" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Peck_challange02_problem05" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Challanges/challange_02" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Step_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -72,6 +123,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Peck_challange02_problem05" />
+        <item itemvalue="Python.Peck_challange02_problem04" />
         <item itemvalue="Python.Step_2" />
       </list>
     </recent_temporary>
