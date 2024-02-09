@@ -6,11 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem03.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem04.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem05.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_2.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_2.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,23 +42,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Peck_challange02_problem01.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Peck_challange02_problem02.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Peck_challange02_problem03.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Peck_challange02_problem04.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Peck_challange02_problem05.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Step_1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Step_2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Step_3.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Step_4.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Peck_challange02_problem01.executor": "Run",
+    "Python.Peck_challange02_problem02.executor": "Run",
+    "Python.Peck_challange02_problem03.executor": "Run",
+    "Python.Peck_challange02_problem04.executor": "Run",
+    "Python.Peck_challange02_problem05.executor": "Run",
+    "Python.Step_0.executor": "Run",
+    "Python.Step_1.executor": "Run",
+    "Python.Step_2.executor": "Run",
+    "Python.Step_3.executor": "Run",
+    "Python.Step_4.executor": "Run",
+    "Python.Step_5.executor": "Run",
+    "Python.Step_6.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
-  <component name="RunManager" selected="Python.Peck_challange02_problem05">
+}]]></component>
+  <component name="RunManager">
     <configuration name="Peck_challange02_problem04" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -146,5 +153,41 @@
       <updated>1707323799361</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_1.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -16,14 +16,14 @@
 # We will query the file Step_4.csv, a file of population data per year per country:
 import csv
 
-with open("Step_4.csv") as population_csv:
-    csv_reader = csv.reader(population_csv, delimiter=',')
+with open("Step_4.csv") as population_csv: # as means: call it this
+    csv_reader = csv.reader(population_csv, delimiter=',') #csv.reader is...
 
     line_count = 0
 
     for row in csv_reader:
         if line_count == 0:
-            print("Column names are: " + str(row))
+            print("Column names are: " + str(row)) # now the column headers are 0, 1, 2, 3 stored in a string
             line_count += 1
         line_count += 1
 

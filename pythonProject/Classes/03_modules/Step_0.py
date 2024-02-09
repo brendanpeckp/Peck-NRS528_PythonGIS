@@ -14,5 +14,9 @@ item3 = "data3.txt"
 
 # Take this list of files (file_list), and using a for loop, go through each file name and add
 # a new file extension (.csv) and print new_extension_file_list.
-
-
+###
+## Express your items as a list
+print(item1)
+items_list = [item1, item2, item3]
+print(items_list)
+print(items_list.apend('.csv'))
