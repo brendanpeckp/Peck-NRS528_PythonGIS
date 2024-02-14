@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Challanges/challange_03/Item_01.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/02_basics/Step_6.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/02_basics/Step_6.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_0.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_0.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_2.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_2.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_4.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +37,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.Item_01.executor": "Run",
     "Python.Peck_challange02_problem01.executor": "Run",
     "Python.Peck_challange02_problem02.executor": "Run",
     "Python.Peck_challange02_problem03.executor": "Run",
@@ -56,6 +50,7 @@
     "Python.Step_4.executor": "Run",
     "Python.Step_5.executor": "Run",
     "Python.Step_6.executor": "Run",
+    "Python.Task_Step_1.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main"
@@ -130,8 +125,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Peck_challange02_problem05" />
         <item itemvalue="Python.Peck_challange02_problem04" />
+        <item itemvalue="Python.Peck_challange02_problem05" />
         <item itemvalue="Python.Step_2" />
       </list>
     </recent_temporary>
@@ -157,11 +152,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Classes/03_modules/Step_1.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
           <line>10</line>

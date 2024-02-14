@@ -4,7 +4,7 @@
 #####
 
 # The os package gives you functions that allow you to interface with the operating system:
-# import os
+import os
 
 # Part a - Executing a Shell/Command Prompt command
 # os.system("dir") #DIR is a Windows command to list contents of current directory
@@ -18,9 +18,9 @@ import os
 # os.system("dir")
 # os.system("rmdir hello")
 # os.system("dir")
-
-# # Part b - Other interesting functions you can use within Python
-path = "test_dir"
+#
+# # # Part b - Other interesting functions you can use within Python
+# path = "test_dir"
 
 # # Create a directory
 # os.mkdir(path)
@@ -41,13 +41,32 @@ path = "test_dir"
 # # # # Remove (delete) the directory path.
 # os.rmdir(path)
 # #
-# # Bonus Task 2 - Use os to make a directory in your root directory, add a subdirectory inside it, check if it is created,
-# # delete the subdirectory and the main directory. Check if the main directory exists, print "name dir EXISTS" or "name dir NOT EXISTS"
-# file_path = r"C:\folder"
-# os.mkdir(file_path)
+# # # Bonus Task 2 - Use os to make a directory in your root directory, add a subdirectory inside it, check if it is created,
+# # # delete the subdirectory and the main directory. Check if the main directory exists, print "name dir EXISTS" or "name dir NOT EXISTS"
+file_path = r"C:\folder"
+os.mkdir(file_path)
+list = os.listdir(file_path)
+print(list)
+for folder_name in list:
+    if folder_name == "folder":
+        print("name dir EXISTS")
+    else:
+        print("name of dir NOT EXISTS")
 #
-# file_path2 = r"C:\folder\folder_inside"
-# os.mkdir(file_path2)
+file_path2 = r"C:\folder\folder_inside"
+os.mkdir(file_path2)
+list = os.listdir(file_path)
+print(list)
+for folder_name in list:
+    if folder_name == "folder_inside":
+        print("name dir EXISTS")
+    else:
+        print("name of dir NOT EXISTS")
+#
+os.rmdir(file_path2)
+os.rmdir(file_path)
+#
+os.system(dir"C:")
 #
 # list = os.listdir(file_path)
 # print(list)
