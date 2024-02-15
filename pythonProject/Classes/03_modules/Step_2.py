@@ -8,10 +8,10 @@
 import sys
 
 # For example, we can find out the version of the software:
-# print(sys.version)
+print(sys.version)
 #
 # # Locate our Python Executable path
-# print(sys.executable)
+print(sys.executable)
 #
 # # Read and write to the interpreter directly (similar to print function, but a bit more powerful)
 # sys.stderr.write('This is stderr text\n')
