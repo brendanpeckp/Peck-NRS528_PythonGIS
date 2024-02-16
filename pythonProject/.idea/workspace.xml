@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_03/Item_02.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Challanges/challange_03/Item_02.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/pythonProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pythonProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Challanges/challange_03/Item_03.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Step_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Classes/03_modules/Task_Answers/Task_Step_2.bat" beforeDir="false" afterPath="$PROJECT_DIR$/Classes/03_modules/Task_Answers/Task_Step_2.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challanges/challange_03/Item_02.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_03/Item_02.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +39,7 @@
   "keyToString": {
     "Python.Item_01.executor": "Run",
     "Python.Item_02.executor": "Run",
+    "Python.Item_03.executor": "Run",
     "Python.Peck_challange02_problem01.executor": "Run",
     "Python.Peck_challange02_problem02.executor": "Run",
     "Python.Peck_challange02_problem03.executor": "Run",
@@ -59,7 +57,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Software/StreamLit"
+    "last_opened_file_path": "C:/Software/StreamLit",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RunManager">

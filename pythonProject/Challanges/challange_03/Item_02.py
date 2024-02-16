@@ -40,4 +40,4 @@ print("dog: " + str(sys.argv[3]))
 animal_list = ["cat, squid, dog"]
 
 ## Ok so, since I have three print statements I think I have stisfied the assignment.
-## When you asked for "file generated output should be produced." I was not surre what that meant. 
+## When you asked for "file generated output should be produced." I was not surre what that meant.
