@@ -37,14 +37,20 @@ for i in List1:
 #         print(elem)
 ## Attempt 2
 List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
+List2 =[]
 for elem in List1:
-    if elem > 5:
-        List1.remove(elem)
-        for elem in List1:
-            if elem > 5:
-                List1.remove(elem)
-                for elem in List1:
-                    if elem > 5:
-                        List1.remove(elem)
-                        print(List1)
+    print(elem)
+    if elem < 5:
+        print(elem)
+        List2.append(elem)
+        # for elem in List1:
+        #     if elem > 5:
+        #         List1.remove(elem)
+        #         for elem in List1:
+        #             if elem > 5:
+        #                 List1.remove(elem)
+print(List2)
 ## Success for both items? Yes for 1. No for 2.
+
+List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
+print([element for element in List1 if element < 5])
