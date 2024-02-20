@@ -16,21 +16,18 @@ list_b = ['dog', 'hamster', 'snake']
 print(list(set(list_a).intersection(list_b)))
 # Found answer @ https://stackoverflow.com/questions/2864842/common-elements-comparison-between-2-lists
 # from answer:
+# "
 # >>> list1 = [1,2,3,4,5,6]
 # >>> list2 = [3, 5, 7, 9]
 # >>> list(set(list1).intersection(list2))
-# [3, 5]
+# [3, 5] "
 
 # Item 2
 list_a = ['dog', 'cat', 'rabbit', 'hamster', 'gerbil']
 list_b = ['dog', 'hamster', 'snake']
-<<<<<<< Updated upstream
-print(list(set(list_a).difference(list_b)))
-# Were both items successful? Yes
-=======
 difference_a = list(set(list_a).difference(list_b))
 # print(difference_a)
 difference_b = list(set(list_b).difference(list_a))
 # print(difference_b)
 print(difference_a + difference_b)
->>>>>>> Stashed changes
+
