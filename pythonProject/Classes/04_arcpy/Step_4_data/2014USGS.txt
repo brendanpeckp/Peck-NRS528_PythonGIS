@@ -1,0 +1,261 @@
+Identification_Information:
+  Citation:
+    Citation_Information:
+      Originator: U.S. Geological Survey
+      Originator: Fugro EarthData, Inc.
+      Publication_Date: 20150304
+      Title: April 2014 Rhode Island Statewide High Resolution Orthoimages
+      Geospatial_Data_Presentation_Form: remote-sensing image
+      Publication_Information:
+        Publication_Place: Rolla, MO
+        Publisher: U.S. Geological Survey
+      Other_Citation_Details: Suggested bibliographic reference:  RIGIS, 2015. April 2014 Rhode Island Statewide High Resolution Orthoimages. Rhode Island Geographic Information System (RIGIS) Data Distribution System, URL: http://www.rigis.org, Environmental Data Center, University of Rhode Island, Kingston, Rhode Island (last date accessed: 11 September 2015).
+      Larger_Work_Citation:
+        Citation_Information:
+          Originator: Rhode Island Geographic Information System (RIGIS)
+          Publication_Date: 1993
+          Title: Rhode Island Geographic Information System (RIGIS) Data Distribution System
+          Online_Linkage: http://www.rigis.org
+  Description:
+    Abstract: These data consist of 0.3-meter pixel resolution (approximately 1-foot), 4-band (R,G,B,IR) orthoimages covering the State of Rhode Island collected April 9-10 and 17, 2014.  An orthoimage is remotely sensed image data in which displacement of features in the image caused by terrain relief and sensor orientation have been mathematically removed. Orthoimagery combines the image characteristics of a photograph with the geometric qualities of a map.  The design accuracy is estimated not to exceed 1.52-meters [4.99 feet] NSSDA 95% confidence (0.88-meters [2.89 feet] Root Mean Squared (RMSE) Error XY (0.62 meter [2.03 feet] RMSE X or Y).  Each orthoimage provides imagery over a 5000-foot by 5000-foot block on the ground. There is no image overlap between adjacent files. The projected coordinate system is Rhode Island State Plane with a NAD83 datum.
+    Purpose: This data depicts geographic features on the surface of the earth.  It was created to provide easily accessible geospatial data which is readily available to enhance the capability of Federal, State, and local emergency responders, as well as plan for homeland security efforts.  This data also supports The National Map.
+    Supplemental_Information: These images were collected and processed by Fugro EarthData Inc under contract to the USGS.  Funding for this project was provided by the National Geospatial-Intelligence Agency and the Rhode Island Department of Administration, Statewide Planning Program.
+  Time_Period_of_Content:
+    Time_Period_Information:
+      Multiple_Dates/Times:
+        Single_Date/Time:
+          Calendar_Date: 20140409
+        Single_Date/Time:
+          Calendar_Date: 20140410
+        Single_Date/Time:
+          Calendar_Date: 20140417
+    Currentness_Reference: ground condition
+  Status:
+    Progress: Complete
+    Maintenance_and_Update_Frequency: None planned
+  Spatial_Domain:
+    Bounding_Coordinates:
+      West_Bounding_Coordinate: -71.897900
+      East_Bounding_Coordinate: -71.087988
+      North_Bounding_Coordinate: 42.043861
+      South_Bounding_Coordinate: 41.123786
+  Keywords:
+    Theme:
+      Theme_Keyword_Thesaurus: ISO 19115 Topic Category
+      Theme_Keyword: imageryBaseMapsEarthCover
+    Theme:
+      Theme_Keyword_Thesaurus: None
+      Theme_Keyword: 0.3 meter orthoimage
+      Theme_Keyword: rectified photograph
+      Theme_Keyword: rectified image
+      Theme_Keyword: orthophoto
+      Theme_Keyword: 4-band (R,G,B,IR) orthophoto
+      Theme_Keyword: orthoimage
+      Theme_Keyword: image map
+    Place:
+      Place_Keyword_Thesaurus: U.S. Department of Commerce, 1995, Countries, dependencies, areas of special sovereignty, and their principal administrative divisions, Federal Information Processing Standard (FIPS) 10-4): Washington, D.C., National Institute of Standards and Technology.
+      Place_Keyword: US
+    Place:
+      Place_Keyword_Thesaurus: U.S. Department of Commerce, 1987, Codes for the Identification of the States, the District of Columbia and the outlying areas of the United States, and associated areas (Federal Information Processing Standard (FIPS) 5-2): Washington, D.C., National Institute of Standards and Technology.
+      Place_Keyword: US
+    Place:
+      Place_Keyword_Thesaurus: None
+      Place_Keyword: Providence, RI
+  Access_Constraints: None
+  Use_Constraints:
+    This dataset is provided 'as is.’  The producer(s) of this dataset, contributors to this dataset, the Rhode Island Geographic Information System (RIGIS) consortium, the State of Rhode Island, and the University of Rhode Island do not make any warranties of any kind for this dataset, and are not liable for any loss or damage however and whenever caused by any use of this dataset.
+    Please acknowledge both RIGIS and the primary producer(s) of this dataset in any derived products.  Versions of the RIGIS logo suitable for both printed and web-based products are available at http://www.edc.uri.edu/rigis/logos.
+    Users should be aware that temporal changes may have occurred since this data set was collected and that some parts of this data may no longer represent actual surface conditions.  Users should not use this data for critical applications without a full awareness of it's limitations.
+    Acknowledgment of the U.S. Geological Survey would be appreciated for products derived from these data.
+  Data_Set_Credit: Fugro EarthData, Inc.
+  Native_Data_Set_Environment:
+    The following software is used for validation of the imagery and surface modeling 
+    1. Aerotriangulation - Pixel Factory 3.2, Linux
+    2. Digital Orthophotography - Pixel Factory 3.2, Linux
+    3. Bentley - MicroStation
+    4. Pixel Factory 3.2, Linux
+    5. Esri - ArcMap
+    6. ERDAS Imagine
+    7. TerraScan/TerraModel
+    8. Fugro EarthData Proprietary software
+    9. Adobe - Photoshop
+    10. GPro
+    11. LizardTech GeoExpress
+Data_Quality_Information:
+  Attribute_Accuracy:
+    Attribute_Accuracy_Report: Radiometry is verified by visual inspection of the digital orthophoto.  Slight systematic radiometric differences may exist between adjacent orthoimage files; these are due primarily to differences in source image capture dates and sun angles along flight lines. These differences can be observed in an image's general lightness or darkness when it is compared to adjacent orthoimage file coverages. Tonal balancing may be performed over a group of images during the mosaicking process which may serve to lighten or darken adjacent images for better color tone matching.
+  Logical_Consistency_Report: All GeoTIFF tagged data and image file sizes are validated using commercial GIS software to ensure proper loading before being archived.   This validation procedure ensures correct physical format and field values for tagged elements.  Seamlines and tile edges are visually inspected.  Seamline mismatches are not corrected unless the overall displacement exceeds 0.6 meters.
+  Completeness_Report: Orthoimages are visually inspected for completeness to ensure that no gaps or image misplacements exist within and between adjacent images. These images are derived by mosaicking multiple images to ensure complete coverage. Source imagery is cloud free. Imagery acquisition during leaf-on conditions was approved.
+  Positional_Accuracy:
+    Horizontal_Positional_Accuracy:
+      Horizontal_Positional_Accuracy_Report: The orthophotos were created to be fully compliant with a horizontal positional accuracy shall not exceed 4.99 feet tested to NSSDA Standards (95% confidence).  Accuracy value is provided using units US Survey Feet.
+      Quantitative_Horizontal_Positional_Accuracy_Assessment:
+        Horizontal_Positional_Accuracy_Value: 1.59
+        Horizontal_Positional_Accuracy_Explanation: Federal Geographic Data Committee, 1998, Geospatial Positioning Accuracy Standard, Part 3, National Standard for Spatial Data Accuracy, FGDC-STD-007.3-1998
+  Lineage:
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Fugro EarthData, Inc.
+          Publication_Date: 20140417
+          Title: Providence, RI Raw ADS80 imagery
+          Geospatial_Data_Presentation_Form: remote-sensing image
+      Source_Scale_Denominator: 2400
+      Type_of_Source_Media: on-line
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Multiple_Dates/Times:
+            Single_Date/Time:
+              Calendar_Date: 20140409
+            Single_Date/Time:
+              Calendar_Date: 20140410
+            Single_Date/Time:
+              Calendar_Date: 20140417
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: wavelengths bands
+      Source_Contribution: raw red, green, blue, and near infrared wavelengths collected at 2,865 meters above mean terrain.  This is the input data for the digital orthophotos.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: TerraSurv, Inc.
+          Publication_Date: 20140423
+          Title: ground survey
+      Type_of_Source_Media: spreadsheet
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Multiple_Dates/Times:
+            Single_Date/Time:
+              Calendar_Date: 20140401
+            Single_Date/Time:
+              Calendar_Date: 20140402
+            Single_Date/Time:
+              Calendar_Date: 20140403
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: ground control
+      Source_Contribution: Ground control survey to support photogrammetric mapping and blind QC points.
+    Source_Information:
+      Source_Citation:
+        Citation_Information:
+          Originator: Fugro EarthData, Inc.
+          Publication_Date: 20140503
+          Title: Pixel Factory DEM
+      Type_of_Source_Media: network drives
+      Source_Time_Period_of_Content:
+        Time_Period_Information:
+          Single_Date/Time:
+            Calendar_Date: 20140503
+        Source_Currentness_Reference: ground condition
+      Source_Citation_Abbreviation: surface
+      Source_Contribution: Autocorrelated surface generated to support the development of orthophotography.  The surface is edited into a bare earth DEM for use in orthorectification.
+    Process_Step:
+      Process_Description: The digital orthophotography is comprised of a 24 bit, RGBN bands, 30cm pixel resolution ground and true  orthos covering the Providence, RI project area. The imagery was acquired on April 9, 10, and 17 2014. The Pixel Factory process was used in the generation of the orthoimagery covering all project tiles. The rectification process was then run using the processed DSM on each flight line. The quicklook (reduced resolution rectification) of each flight line are exported out of Pixel Factory. Radiometric adjustments were made to the quicklooks using Fugro proprietary tools. The radiometrically balanced imagery was then re-imported into the Pixel Factory system and the histogram from the quicklook was applied to the full resolution imagery. Mosaic lines were placed, joining the ADS80 imagery strips. An initial QA/QC was performed by the technician to ensure that the mosaic lines were appropriately placed and that there was appropriate imagery coverage. The final imagery data set is removed from the Pixel Factory environment in a process called "packaging" where the individual tiles are created. All data processing in the Pixel Factory system is performed in UTM meters; it is during packaging that final datum and projection are defined. The created tiles were reviewed to ensure the output was successful and ground control points were measured and verified for accuracy. QA/QC was performed looking for anomalies, smears and other indications of problems within the digital orthophoto creation process, and interactive radiometric adjustment applied where needed. Additional global radiometric adjustments were applied to the completed orthos in Adobe Photoshop to enhance the color and/or contrast as needed. The tiles were originally delivered in NAD83(2011), Rhode Island State Plane, US Survey Feet; however, the initial delivery had incorrect datum information contained within the headers of the image files.  When the data were returned for re-processing, t was also requested that the tiles be delivered in NAD83(1986), Rhode Island State Plane, US Survey Feet. Fugro worked with their approved ID/IQ subcontractor for ground control surveying, TerraSurv, Inc., to determine an average shift between NAD83(2011) and NAD83(1986) for the project area. This shift was applied prior to the data being reprojected from UTM to State Plane. The tiles were clipped to the customer provided tile layout, named “RI_SP_8388_sf_Layout.shp”. The created tiles were reviewed to ensure the output was successful and ground control points were measured and verified for accuracy. The final digital ortho products were delivered in GeoTIFF format. The GeoTIFFs were loaded into LizardTech GeoExpress creating a compressed mosaic in MrSID Gen4 format with a compression ratio of 20:1.
+      Process_Date: 20150304
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: Fugro EarthData, Inc.
+          Contact_Position: Geospatial Extension Specialist
+          Contact_Address:
+            Address_Type: mailing and physical
+            Address: 7320 Executive Way
+            City: Frederick
+            State_or_Province: MD
+            Postal_Code: 21704
+    Process_Step:
+      Process_Description: Data contributed to RIGIS by the Rhode Island Department of Administration, Statewide Planning Program. Metadata reviewed, with minor corrections and updates made to formatting and content.  Source GeoTIFFs exported to JPEG2000 file format using Global Mapper 16, compressed at a target ratio of 10:1.
+      Process_Date: 20150325
+      Process_Contact:
+        Contact_Information:
+          Contact_Organization_Primary:
+            Contact_Organization: University of Rhode Island Environmental Data Center
+            Contact_Person: Greg Bonynge
+          Contact_Position: Geospatial Extension Specialist
+          Contact_Address:
+            Address_Type: mailing and physical
+            Address: 1 Greenhouse Road
+            City: Kingston
+            State_or_Province: RI
+            Postal_Code: 02881
+          Contact_Voice_Telephone: 401-874-2180
+          Contact_Electronic_Mail_Address: greg@edc.uri.edu
+          Contact_Instructions: Email preferred.
+Spatial_Data_Organization_Information:
+  Direct_Spatial_Reference_Method: Raster
+Spatial_Reference_Information:
+  Horizontal_Coordinate_System_Definition:
+    Planar:
+      Map_Projection:
+        Map_Projection_Name: NAD 1983 StatePlane Rhode Island FIPS 3800 Feet
+        Transverse_Mercator:
+          Scale_Factor_at_Central_Meridian: 0.99999375
+          Longitude_of_Central_Meridian: -71.5
+          Latitude_of_Projection_Origin: 41.08333333333334
+          False_Easting: 328083.3333333333
+          False_Northing: 0.0
+      Planar_Coordinate_Information:
+        Planar_Coordinate_Encoding_Method: coordinate pair
+        Coordinate_Representation:
+          Abscissa_Resolution: 0.00000000003195086214269339
+          Ordinate_Resolution: 0.00000000003195086214269339
+        Planar_Distance_Units: foot_us
+    Geodetic_Model:
+      Horizontal_Datum_Name: North American Datum of 1983
+      Ellipsoid_Name: Geodetic Reference System 80
+      Semi-major_Axis: 6378137.000000
+      Denominator_of_Flattening_Ratio: 298.257222
+Entity_and_Attribute_Information:
+  Overview_Description:
+    Entity_and_Attribute_Overview: The orthoimagery is organized in four color bands or channels which represent the red, green, blue and near infrared (RGBN) portions of the spectrum. Each image pixel is assigned a quadruplet of numeric values, one for each color band. Numeric values range from 0 to 255.
+    Entity_and_Attribute_Detail_Citation: U.S. Department of the Interior, U.S. Geological Survey, 1996, Standards for Digital Orthophotos: Reston, VA.
+Distribution_Information:
+  Distributor:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: University of Rhode Island Environmental Data Center
+        Contact_Person: Erica Tefft
+      Contact_Address:
+        Address_Type: mailing and physical
+        Address: 1 Greenhouse Road
+        City: Kingston
+        State_or_Province: RI
+        Postal_Code: 02881
+      Contact_Voice_Telephone: 401-874-5054
+      Contact_Electronic_Mail_Address: erica@edc.uri.edu
+      Contact_Instructions: email preferred
+  Distribution_Liability: This dataset is provided 'as is.'  The producer(s) of this dataset, contributors to this dataset, the Rhode Island Geographic Information System (RIGIS) consortium, the State of Rhode Island, and the University of Rhode Island do not make any warranties of any kind for this dataset, and are not liable for any loss or damage however and whenever caused by any use of this dataset.
+  Standard_Order_Process:
+    Digital_Form:
+      Digital_Transfer_Information:
+        Format_Name: GeoTIFF and JPEG2000
+        File_Decompression_Technique: ZIP
+      Digital_Transfer_Option:
+        Online_Option:
+          Computer_Contact_Information:
+            Network_Address:
+              Network_Resource_Name: http://www.edc.uri.edu/rigis
+    Fees: No fee for downloading directly from the RIGIS Data Distribution System located at http://www.edc.uri.edu/rigis.
+Metadata_Reference_Information:
+  Metadata_Date: 20150309
+  Metadata_Review_Date: 20150911
+  Metadata_Contact:
+    Contact_Information:
+      Contact_Organization_Primary:
+        Contact_Organization: U.S. Geological Survey
+      Contact_Address:
+        Address_Type: mailing and physical
+        Address: Customer Services
+        Address: U.S. Geological Survey
+        Address: EROS Data Center
+        Address: 47914 252nd Street
+        City: Sioux Falls
+        State_or_Province: SD
+        Postal_Code: 57198-0001
+        Country: US
+      Contact_Voice_Telephone: 1-800-252-4547
+      Contact_TDD/TTY_Telephone: 1-605-594-6933
+      Contact_Facsimile_Telephone: 1-605-594-6589
+      Contact_Electronic_Mail_Address: custserv@usgs.gov
+      Hours_of_Service: Monday through Friday 8:00 AM to 4:00 PM (Central Time)
+      Contact_Instructions: The above is the contact information for Earth Resources Observation and Science Center in Sioux Falls, SD.
+  Metadata_Standard_Name: FGDC Content Standard for Digital Geospatial Metadata
+  Metadata_Standard_Version: FGDC-STD-001-1998

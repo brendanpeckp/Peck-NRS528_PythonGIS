@@ -24,5 +24,13 @@ print(list(set(list_a).intersection(list_b)))
 # Item 2
 list_a = ['dog', 'cat', 'rabbit', 'hamster', 'gerbil']
 list_b = ['dog', 'hamster', 'snake']
+<<<<<<< Updated upstream
 print(list(set(list_a).difference(list_b)))
 # Were both items successful? Yes
+=======
+difference_a = list(set(list_a).difference(list_b))
+# print(difference_a)
+difference_b = list(set(list_b).difference(list_a))
+# print(difference_b)
+print(difference_a + difference_b)
+>>>>>>> Stashed changes

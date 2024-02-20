@@ -5,6 +5,7 @@
 ## ```python
 ## [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
 ## ```
+
 List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
 List2 =[]
 for elem in List1:
@@ -13,8 +14,11 @@ for elem in List1:
         # print(elem)
         List2.append(elem)
 print(List2)
+
 ## Item 2
 ## 2. Write this in one line of Python (you do not need to append to a list just print the output).
-
 List1 = [1, 2, 3, 6, 8, 12, 20, 32, 46, 85]
-print([element for element in List1 if element < 5])
+print([wetgrrgshh for wetgrrgshh in List1 if wetgrrgshh < 5]) # This is just an inside to outside, left to right notation
+# This way, I can put the entire code in one line.
+# The "wetgrrgshh" is just to remind me that I can name it anything. (I would not usually use a bizarre name like that)
+

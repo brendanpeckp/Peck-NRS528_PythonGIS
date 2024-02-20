@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" beforeDir="false" afterPath="$PROJECT_DIR$/Challanges/challange_02/Peck_challange02_problem01.py" afterDir="false" />
     </list>
+=======
+    <list default="true" id="13a8311c-250e-43dd-82ff-a7994ee5c75e" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,6 +50,10 @@
     &quot;Python.Peck_challange02_problem05.executor&quot;: &quot;Run&quot;,
     &quot;Python.Step_0.executor&quot;: &quot;Run&quot;,
     &quot;Python.Step_1.executor&quot;: &quot;Run&quot;,
+<<<<<<< Updated upstream
+=======
+    &quot;Python.Step_2 (1).executor&quot;: &quot;Run&quot;,
+>>>>>>> Stashed changes
     &quot;Python.Step_2.executor&quot;: &quot;Run&quot;,
     &quot;Python.Step_3.executor&quot;: &quot;Run&quot;,
     &quot;Python.Step_4.executor&quot;: &quot;Run&quot;,
@@ -60,7 +68,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+<<<<<<< Updated upstream
   <component name="RunManager">
+=======
+  <component name="RunManager" selected="Python.Peck_challange02_problem04">
+>>>>>>> Stashed changes
     <configuration name="Peck_challange02_problem04" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -105,6 +117,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Step_2 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pythonProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Classes/04_arcpy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Classes/04_arcpy/Step_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Step_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pythonProject" />
       <option name="ENV_FILES" value="" />
@@ -130,6 +164,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.Peck_challange02_problem04" />
+        <item itemvalue="Python.Step_2 (1)" />
         <item itemvalue="Python.Peck_challange02_problem05" />
         <item itemvalue="Python.Step_2" />
       </list>
@@ -180,6 +215,11 @@
           <url>file://$PROJECT_DIR$/Classes/03_modules/Step_2.py</url>
           <line>18</line>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Classes/04_arcpy/Step_0.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
