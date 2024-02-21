@@ -32,8 +32,8 @@ ba_start_time = time.time()
 from arcpy import Buffer_analysis as ba
 print('It took', time.time()-ba_start_time, 'seconds, to load ba.')
 
-import time
-arcpy_start_time = time.time()
-import arcpy
-print('It took', time.time()-arcpy_start_time, 'seconds, to load arcpy.')
+# import time
+# arcpy_start_time = time.time()
+# import arcpy
+# print('It took', time.time()-arcpy_start_time, 'seconds, to load arcpy.')
 
