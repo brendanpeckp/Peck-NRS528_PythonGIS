@@ -17,7 +17,7 @@
 ## reliable format.
 
 ######
-import csv # Allow me the functions to mrite to and from a .csv
+import csv # Allow me the functions to write to and from a .csv
 with open("co2-ppm-daily (1).csv") as daily_co2_csv:
     # "open" opens the named .csv file.
     # "as" names the opened file as the name following "as".
@@ -52,25 +52,19 @@ with open("co2-ppm-daily (1).csv") as daily_co2_csv:
 # #     print(total) # without we print as engineering notation
 # #     # Now look at the data, 3 hundred billion? Ah, we have multiple years..
 
-# # with open("co2-ppm-daily (1).csv") as daily_co2_csv:
-# #     next(daily_co2_csv)
-# #     average = 0
-# #     for row in csv.reader(daily_co2_csv):
-# #         average += float(row[1]) / 18766
-# #         # average is the variable
-# #         # += will add up all values in the columb.
-# #         # float will "Convert a string or number to a floating point number, if possible."
-# #     print('average daily co2 = ' + format(average, 'f') + ' ppm') # format prints as float
+# with open("co2-ppm-daily (1).csv") as daily_co2_csv:
+#     next(daily_co2_csv)
+#     average = 0
+#     for row in csv.reader(daily_co2_csv):
+#         average += float(row[1]) / 18766
+#         # average is the variable
+#         # += will add up all values in the column.
+#         # float will "Convert a string or number to a floating point number, if possible."
+#     print('average daily co2 = ' + format(average, 'f') + ' ppm') # format prints as float
 
-import datetime
+import numpy as np
 
-with open("co2-ppm-daily (1).csv") as daily_co2_csv:
-    next(daily_co2_csv)
-    average = 0
-    for row in csv.reader(daily_co2_csv):
-        average += float(row[1]) / 18766
-        # average is the variable
-        # += will add up all values in the columb.
-        # float will "Convert a string or number to a floating point number, if possible."
-    print('average daily co2 = ' + format(average, 'f') + ' ppm') # format prints as float
+import pandas as pd
 
+columns = list(daily_co2_csv)
+print(columns)
