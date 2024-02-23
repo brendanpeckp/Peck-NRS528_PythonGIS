@@ -62,9 +62,4 @@ with open("co2-ppm-daily (1).csv") as daily_co2_csv:
 #         # float will "Convert a string or number to a floating point number, if possible."
 #     print('average daily co2 = ' + format(average, 'f') + ' ppm') # format prints as float
 
-import numpy as np
 
-import pandas as pd
-
-columns = list(daily_co2_csv)
-print(columns)
