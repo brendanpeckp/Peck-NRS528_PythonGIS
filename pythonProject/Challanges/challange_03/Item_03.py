@@ -18,6 +18,9 @@
 
 ######
 import csv # Allow me the functions to write to and from a .csv
+
+value_list = []
+
 with open("co2-ppm-daily (1).csv") as daily_co2_csv:
     # "open" opens the named .csv file.
     # "as" names the opened file as the name following "as".
@@ -29,14 +32,19 @@ with open("co2-ppm-daily (1).csv") as daily_co2_csv:
             # "csv.reader()" will be able to look at each individual value in the .csv
             # "delimiter=','" sets "," as seperators.
     line_count = 0
+    next(csv_reader)
     for row in csv_reader:
         # The for statement is used to iterate over the elements of a sequence (such as a string, tuple or list) or other iterable object.
         # "If" will test if its following text is true.
+        value_list.append(float(row[1]))
         if line_count == 0:
             print("Column names are: " + str(row)) # now the column headers are 0, 1, 2, 3 stored in a string
             line_count += 1
         line_count += 1
         print("Processed " + str(line_count) + " lines.") # tells me if I did this correctly.
+
+print("the average for entire dataset is: " + str(sum(value_list) / len(value_list)))
+
 ## At this point I made this python file capable of reading the csv file and
 ## I have been able to read the columb headers from the .csv file in this environment.
 ## Next, I need to pull values from the .csv, do operations with them, then print something like "The average value is x"
