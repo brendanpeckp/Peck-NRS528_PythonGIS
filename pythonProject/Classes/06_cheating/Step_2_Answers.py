@@ -65,24 +65,24 @@ print("Compositing Bands... Finished")
 # data. Hint: use the list and starter code I have provided, and consider using a for loop to run through each year of data
 # complete the composite bands tool for each one, and go from there.
 
-# import os, arcpy
-# listYears = ["2013", "2014", "2015", "2016", "2017", "2018", "2019"]
-# outputDirectory = "D:/Python-Class/Class7/WinterComposites"
-# if not os.path.exists(outputDirectory):
-#     os.mkdir(outputDirectory)
-#
-# # Consider what you want to do before you start. 1) for loop through listYears, 2) set your workspace to the correct
-# # year, 3) arcpy.ListRasters, 4) remove BQA.tif, 5) composite bands into a known location.
-#
-# for year in listYears:
-#     arcpy.env.workspace = "D:/Python-Class/Class7/Winter_" + year
-#     listRasters = arcpy.ListRasters("*", "TIF")
-#     print("For year: " + year + ", there are: " + str(len(listRasters)) + " bands to process.")
-#     listRasters = [x for x in listRasters if "_BQA.tif" not in x]
-#     print("Compositing Bands for " + year)
-#     arcpy.CompositeBands_management(in_rasters=listRasters, out_raster=os.path.join(outputDirectory, "Winter" + year + ".tif"))
-#     print("Compositing Bands for " + year + " finished.")
-#
-# # Task 4 - See Step_2.py for the Task!
+import os, arcpy
+listYears = ["2013", "2014", "2015", "2016", "2017", "2018", "2019"]
+outputDirectory = "D:/Python-Class/Class7/WinterComposites"
+if not os.path.exists(outputDirectory):
+    os.mkdir(outputDirectory)
+
+# Consider what you want to do before you start. 1) for loop through listYears, 2) set your workspace to the correct
+# year, 3) arcpy.ListRasters, 4) remove BQA.tif, 5) composite bands into a known location.
+
+for year in listYears:
+    arcpy.env.workspace = "D:/Python-Class/Class7/Winter_" + year
+    listRasters = arcpy.ListRasters("*", "TIF")
+    print("For year: " + year + ", there are: " + str(len(listRasters)) + " bands to process.")
+    listRasters = [x for x in listRasters if "_BQA.tif" not in x]
+    print("Compositing Bands for " + year)
+    arcpy.CompositeBands_management(in_rasters=listRasters, out_raster=os.path.join(outputDirectory, "Winter" + year + ".tif"))
+    print("Compositing Bands for " + year + " finished.")
+
+# Task 4 - See Step_2.py for the Task!
 
 

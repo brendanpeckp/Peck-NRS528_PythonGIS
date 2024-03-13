@@ -21,7 +21,7 @@
 # print("Extent:\n  XMin: {0},\n XMax: {1},\n YMin: {2},\n YMax: {3}".format(desc.extent.XMin, desc.extent.XMax, desc.extent.YMin, desc.extent.YMax))
 # # This is string substitution notation. It inserts stuff into the string without concatination.
 # print(desc.spatialReference) # Returns meaningless information - geoprocessing spatial reference object, we need to go deeper
-# print(desc.spatialReference.name)
+# print(desc.)
 # print(desc.spatialReference.type)
 
 # Task 1 - Using the raster dataset supplied - 0320001450.JP2, extract the following information (Hint you may
