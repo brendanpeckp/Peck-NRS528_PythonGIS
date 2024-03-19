@@ -50,7 +50,7 @@ import time
 
 #######################################################################################################################
 # USERS: CHANGE YOUR WORKSPACE FILEPATH BETWEEN THE QUOTATION MARKS.
-workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Midterm\Workspace"
+workspace = r"H:\NRS528_2024\Brendan_Peck\pythonProject\Midterm\Workspace"
 #######################################################################################################################
 arcpy.env.workspace = workspace
 print("The input data is composed of " + str(len(arcpy.ListFiles("*"))) + " files.")
@@ -69,7 +69,9 @@ arcpy.CheckOutExtension("ImageAnalyst")
 # projected to the user's study area.
 InputPreparedDEM = arcpy.Raster(os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"))
 print("The input DEM is named: " + str(InputPreparedDEM))
-print(arcpy.Describe.datasetType(arcpy.os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif")))
+
+descInputPreparedDEM = arcpy.Describe(InputPreparedDEM)
+print("Dataset type is: " + str(descInputPreparedDEM.datasetType))
 
 Input_false_raster_or_constant_value = 1
 Input_false_raster_or_constant_value_2_ = 1
