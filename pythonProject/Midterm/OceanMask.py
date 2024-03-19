@@ -68,17 +68,23 @@ arcpy.CheckOutExtension("ImageAnalyst")
 # Here is the input DEM. The tool was designed for 3-arc-second void-filled SRTM data that has been clipped and
 # projected to the user's study area.
 InputPreparedDEM = arcpy.Raster(os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"))
+# Check the input data for its filename, projection, extent, and type. You will need to make a
+# variable to represent the describe outputs.
 print("The input DEM is named: " + str(InputPreparedDEM))
-print(arcpy.os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"))
+desc_InputPreparedDEM = arcpy.Describe(InputPreparedDEM)
+print("Dataset type is: " + str(desc_InputPreparedDEM.datasetType))
+print("Dataset extent is: " + str(desc_InputPreparedDEM.extent))
+print("Dataset's spatial reference is: " + str(desc_InputPreparedDEM.spatialReference))
 
 Input_false_raster_or_constant_value = 1
 Input_false_raster_or_constant_value_2_ = 1
 
 # Process: Set Null (Set Null) (ia)
-SeaLevel1_elseNULL = "C:\\GeoData\\ArcProProjectFiles\\DEM_FloodTool_PythonTemplate\\DEM_FloodTool_PythonTemplate.gdb\\SeaLevel1_elseNULL"
-Set_Null = SeaLevel1_elseNULL
-SeaLevel1_elseNULL = arcpy.ia.SetNull(SRTMvoidfilled_YardlandIrelandFlood, Input_false_raster_or_constant_value, "VALUE >= 1")
-SeaLevel1_elseNULL.save(Set_Null)
+SeaLevel1_elseNULL = arcpy.Raster(os.path.join("SeaLevel1_elseNULL"))
+print(SeaLevel1_elseNULL)
+# Set_Null = SeaLevel1_elseNULL
+# SeaLevel1_elseNULL = arcpy.ia.SetNull(os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"), Input_false_raster_or_constant_value, "VALUE >= 1")
+# SeaLevel1_elseNULL.save(Set_Null)
 
 # # Process: Region Group (Region Group) (sa)
 # SeaLevelGroups = "C:\\GeoData\\ArcProProjectFiles\\DEM_FloodTool_PythonTemplate\\DEM_FloodTool_PythonTemplate.gdb\\SeaLevelGroups"
