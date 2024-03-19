@@ -69,16 +69,16 @@ arcpy.CheckOutExtension("ImageAnalyst")
 # projected to the user's study area.
 InputPreparedDEM = arcpy.Raster(os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"))
 print("The input DEM is named: " + str(InputPreparedDEM))
-print(arcpy.Describe.datasetType(arcpy.os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif")))
+print(arcpy.os.path.join("ProjectedAndClipped_VoidFilledSRTM_DEM_3ArcSecond.tif"))
 
 Input_false_raster_or_constant_value = 1
 Input_false_raster_or_constant_value_2_ = 1
 
-# # Process: Set Null (Set Null) (ia)
-# SeaLevel1_elseNULL = "C:\\GeoData\\ArcProProjectFiles\\DEM_FloodTool_PythonTemplate\\DEM_FloodTool_PythonTemplate.gdb\\SeaLevel1_elseNULL"
-# Set_Null = SeaLevel1_elseNULL
-# SeaLevel1_elseNULL = arcpy.ia.SetNull(SRTMvoidfilled_YardlandIrelandFlood, Input_false_raster_or_constant_value, "VALUE >= 1")
-# SeaLevel1_elseNULL.save(Set_Null)
+# Process: Set Null (Set Null) (ia)
+SeaLevel1_elseNULL = "C:\\GeoData\\ArcProProjectFiles\\DEM_FloodTool_PythonTemplate\\DEM_FloodTool_PythonTemplate.gdb\\SeaLevel1_elseNULL"
+Set_Null = SeaLevel1_elseNULL
+SeaLevel1_elseNULL = arcpy.ia.SetNull(SRTMvoidfilled_YardlandIrelandFlood, Input_false_raster_or_constant_value, "VALUE >= 1")
+SeaLevel1_elseNULL.save(Set_Null)
 
 # # Process: Region Group (Region Group) (sa)
 # SeaLevelGroups = "C:\\GeoData\\ArcProProjectFiles\\DEM_FloodTool_PythonTemplate\\DEM_FloodTool_PythonTemplate.gdb\\SeaLevelGroups"
