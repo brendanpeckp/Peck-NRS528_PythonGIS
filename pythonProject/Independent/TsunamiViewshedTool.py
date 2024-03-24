@@ -5,13 +5,26 @@
 # Name your Countries vector as "SampleCountires_poly.shp"
 # Name your Faults vector as "SampleFaults_lines.shp"
 
+# Table of Contents for Script
+## Setup
+### Imports
+### Overwrite Statement
+### Create Temporary Directory
+## Data Processing
+### Prepare Barrier Features
+### Prepare Observation Features
+### 2D Viewshed Batch For-Loop
+## Cleanup
+## Output
+
 print("START SETUP")
+import time
+setup_startTime = time.time()
 
 import os
 import arcpy
 from arcpy import env
 from arcpy.sa import *
-import time
 
 arcpy.env.overwriteOutput = True
 
@@ -21,7 +34,7 @@ workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Independent"
 #######################################################################################################################
 arcpy.env.workspace = workspace
 
-print("The input data  and script is composed of " + str(len(arcpy.ListFiles("*"))) + " files.")
+print("The input data, backup data and script is composed of " + str(len(arcpy.ListFiles("*"))) + " files.")
 print("Those files are: " + str(arcpy.ListFiles("*")))
 
 # Create a temporary directory to be deleted later.
@@ -34,7 +47,15 @@ else:
 Temporary_Directory = os.path.join("Temp")
 print("The temporary directory is named " + str(os.path.join(Temporary_Directory)))
 
+print("SETUP COMPLETED")
+setup_endTime = time.time()
+setup_elapsedTime = setup_endTime - setup_startTime
+print("The setup process took " + str(setup_elapsedTime) + " seconds to run")
+
 print("START DATA PROCESSING")
+dataProcessing_startTime = time.time()
+
+print("START PREPARING BARRIER FEATURES")
 
 # Convert Countries_Polygons to raster via Feature to Raster. Output as Countries_Raster
 # Set local variables
@@ -43,9 +64,11 @@ Countries_Raster = os.path.join("Countries_Raster.tif")
 cellSize = 50000
 field = "COUNTRY"
 
-# Run FeatureToRaster
+# Run FeatureToRaster and describe output
 arcpy.conversion.FeatureToRaster(Countries_Polygons, field, Countries_Raster, cellSize)
-
+Countries_Raster_Description = arcpy.Describe(os.path.join("Countries_Raster.tif"))
+print("The name of FeatureToRaster's output is: " + str(Countries_Raster_Description.name))
+print("The dataset type of FeatureToRaster's output is: " + str(Countries_Raster_Description.datasetType))
 # Set Countries_Raster to be equal to 1 using Test Output as Land1_ElseNull
 # Set local variables
 TestinRaster = os.path.join("Countries_Raster.tif")
@@ -54,5 +77,136 @@ inWhereClause = "VALUE > 1"
 # Execute Test
 Land1_ElseNull = Test(TestinRaster, inWhereClause)
 
-# Save the output
-Land1_ElseNull.save()
+# Save the output and describe output
+Land1_ElseNull.save(os.path.join(r"Temp\Land1_ElseNull.tif"))
+Land1_ElseNull_Description = arcpy.Describe(os.path.join(r"Temp\Land1_ElseNull.tif"))
+print("The name of Test's output is: " + str(Land1_ElseNull_Description.name))
+print("The dataset type of Test's output is: " + str(Land1_ElseNull_Description.datasetType))
+
+# Tidy up directory before moving to observation features. Check for success and state completion.
+arcpy.Delete_management(os.path.join("Countries_Raster.tif"))
+if os.path.exists(os.path.join("Countries_Raster.tif")) is False:
+    print("The intermediate data (Countries_Raster.tif) was deleted successfully!")
+    print("BARRIER FEATURES COMPLETED")
+else:
+    print("The intermediate data (Countries_Raster.tif) was NOT deleted successfully.")
+
+print("START PREPARING OBSERVATION FEATURES")
+
+# Erase faultlines that overlap with pixels that represent land.
+# Set variables
+faults = os.path.join("SampleFaults_lines.shp")
+land = Countries_Polygons
+oceanFaults = os.path.join(r"Temp\oceanFaults.shp")
+
+# Execute Erase
+arcpy.analysis.Erase(faults, land, oceanFaults)
+
+# Dissolve all oceanFaults to one multipart feature.
+# Set Variables
+# in_features already set as oceanFaults
+multipart_oceanFaults = os.path.join(r"Temp\multipart_oceanFaults.shp")
+
+# Execute Dissolve
+arcpy.management.Dissolve(oceanFaults, multipart_oceanFaults, "", "", "MULTI_PART", "", "")
+
+# Tidy up temp directory before moving to the loop. Check for success and state completion.
+arcpy.Delete_management(os.path.join(r"Temp\oceanFaults.shp"))
+if os.path.exists(os.path.join(r"Temp\oceanFaults.shp")) is False:
+    print("The intermediate data (oceanFaults.shp) was deleted successfully!")
+    print("OBSERVATION FEATURES PREPARED")
+else:
+    print("The intermediate data (oceanFaults.shp) was NOT deleted successfully.")
+
+# Make a directory for the viewshed output
+print("Checking for viewshed output directory...")
+if os.path.exists("Viewshed") is False:
+    os.mkdir("Viewshed")
+    print("The viewshed output directory was created successfully!")
+else:
+    print("The viewshed output directory was already created.")
+Temporary_Directory = os.path.join("Viewshed")
+print("The viewshed output directory is named " + str(os.path.join(Temporary_Directory)))
+
+# Start of loop
+# Loop code
+# for iteration in range x:
+############
+# Contents of loop confined in here.
+# CreateRandomPoints
+# Set variables for CreateRandomPoints
+out_path = os.path.join(r"Temp")
+out_name = os.path.join("observationFeatures")
+constraining_feature_class = os.path.join(r"Temp\multipart_oceanFaults.shp")
+number_of_points_or_field = 10
+minimum_allowed_distance = "1000 Meter"
+
+# Execute CreateRandomPoints
+arcpy.management.CreateRandomPoints(out_path, out_name, constraining_feature_class, "", number_of_points_or_field, minimum_allowed_distance, "MULTIPOINT", "")
+# 2D Viewshed
+# Set variables
+obs_features = os.path.join(r"Temp\observationFeatures")
+LOS_barriers = os.path.join(r"Temp\Land1_ElseNull.tif")  # barrier = 1, other = Nodata
+cellsize = cellSize
+outWS = Temporary_Directory
+
+# Environment Settings
+arcpy.env.scratchWorkspace = os.path.join("Independent")
+arcpy.env.outputCoordinateSystem = LOS_barriers
+
+# Get object ID field name
+OID_field = arcpy.Describe(obs_features).oidfieldname
+
+# For each feature in obs_features
+rows = arcpy.da.SearchCursor(obs_features, [OID_field])
+for row in rows:
+    sT1 = time.perf_counter()
+
+    # Get current target feature
+    ID = row[0]
+    arcpy.env.extent = ""
+    ##    select_feature = r"%s\select_feature_.shp" % tempWS
+    arcpy.Select_analysis(obs_features, r"Temp\select_feature.shp", "%s = %s" % (OID_field, ID))
+    print(os.path.join(r"Temp\select_feature.shp"))
+
+    arcpy.env.extent = LOS_barriers
+
+    # Calculate distances from target feature...
+    dst_w_barriers = arcpy.sa.EucDistance(os.path.join(r"Temp\select_feature.shp"), cell_size=cellsize,
+                                          in_barrier_data=LOS_barriers)  # distance around barriers
+    print("dst_w_barriers is: " + str(dst_w_barriers))
+    dst_no_barriers = arcpy.sa.EucDistance(os.path.join(r"Temp\select_feature.shp"), cell_size=cellsize)  # Euclidean distance
+    print("dst_no_barriers is: " + str(dst_no_barriers))
+
+    # Calculate correction factor to reduce errors in shortest path distance
+    maxD = float(arcpy.GetRasterProperties_management(dst_no_barriers, "MAXIMUM")[0])
+    dummy_barrier = arcpy.sa.SetNull(dst_no_barriers, 1,
+                                     "Value < %s" % maxD)  # null raster with a small number of real pixels outside max viewshed distance. Needed to force EucDist tool to calculate distances in "barrier" mode
+    print("Maximum distance is: " + str(maxD))
+    print("The dummy_barrier is: " + str(dummy_barrier))
+    dst_w_dummy_barriers = arcpy.sa.EucDistance("select_feature.shp", cell_size=cellsize, in_barrier_data=dummy_barrier)
+    print("The dst_w_dummy_barriers is: " + str(dst_w_dummy_barriers))
+    diff_cor = dst_w_dummy_barriers - dst_no_barriers  # difference between distance calculated in Euclidean vs shortest path distance mode
+    print("The diff_cor is: " + str(diff_cor))
+    # Calculate difference between Shortest Path and Euclidean distances and apply correction
+    diff = dst_w_barriers - dst_no_barriers - diff_cor
+    print("The diff is: " + str(diff))
+    #    diff.save(r"%s\diff.img" % tempWS)
+
+    # Classify 2D viewshed: distances < 0.9 are in viewshed
+    _2D_viewshed_binary = arcpy.sa.Test(diff, "Value < 0.9")
+    print("The _2D_viewshed_binary is: " + str(_2D_viewshed_binary))
+    _2D_viewshed = arcpy.sa.SetNull(_2D_viewshed_binary, 1, "Value = 0")
+    print("The _2D_viewshed is: " + str(_2D_viewshed))
+    _2D_viewshed.save(r"%s\viewshed_%s.img" % (outWS, ID))
+    print("The saved _2D_viewshed is: " + str(_2D_viewshed))
+#
+#     # Calculate processing time for 2D viewshed method
+#     proc_time = round((time.perf_counter() - sT1), 0)
+#     print("%s completed in %s seconds" % (ID, round(proc_time, 0)))
+#     arcpy.AddMessage("%s completed in %s seconds" % (ID, round(proc_time, 0)))
+#
+# del rows, row
+# ############
+# # End of loop
+# # Combine the outputs of the for loop into a single viewshed.
