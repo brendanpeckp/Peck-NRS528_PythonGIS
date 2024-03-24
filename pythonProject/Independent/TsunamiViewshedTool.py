@@ -153,6 +153,7 @@ outWS = Temporary_Directory
 # Environment Settings
 arcpy.env.scratchWorkspace = os.path.join("Independent")
 arcpy.env.outputCoordinateSystem = LOS_barriers
+# arcpy.env.workspace = os.path.join("Independent")
 
 # Get object ID field name
 OID_field = arcpy.Describe(obs_features).oidfieldname
@@ -190,8 +191,7 @@ for row in rows:
     print("The diff_cor is: " + str(diff_cor))
     # Calculate difference between Shortest Path and Euclidean distances and apply correction
     diff = dst_w_barriers - dst_no_barriers - diff_cor
-    print("The diff is: " + str(diff))
-    #    diff.save(r"%s\diff.img" % tempWS)
+    # diff.save("diff.img")
 
     # Classify 2D viewshed: distances < 0.9 are in viewshed
     _2D_viewshed_binary = arcpy.sa.Test(diff, "Value < 0.9")
@@ -200,13 +200,13 @@ for row in rows:
     print("The _2D_viewshed is: " + str(_2D_viewshed))
     _2D_viewshed.save(r"%s\viewshed_%s.img" % (outWS, ID))
     print("The saved _2D_viewshed is: " + str(_2D_viewshed))
-#
-#     # Calculate processing time for 2D viewshed method
-#     proc_time = round((time.perf_counter() - sT1), 0)
-#     print("%s completed in %s seconds" % (ID, round(proc_time, 0)))
-#     arcpy.AddMessage("%s completed in %s seconds" % (ID, round(proc_time, 0)))
-#
-# del rows, row
+
+    # Calculate processing time for 2D viewshed method
+    proc_time = round((time.perf_counter() - sT1), 0)
+    print("%s completed in %s seconds" % (ID, round(proc_time, 0)))
+    arcpy.AddMessage("%s completed in %s seconds" % (ID, round(proc_time, 0)))
+
+del rows, row
 # ############
 # # End of loop
 # # Combine the outputs of the for loop into a single viewshed.
