@@ -108,5 +108,3 @@ for species_file in species_file_list:
     arcpy.Delete_management(lyr)
 # #
 # #
-if keep_temp_files == False:
-    arcpy.Delete_management(os.path.join(input_directory, "temporary_files"))
