@@ -1,78 +1,41 @@
-# # 3. Working with CSV
-# # Using the Atmospheric Carbon Dioxide Dry Air Mole Fractions from quasi-continuous daily measurements at Mauna Loa,
-# # Hawaii dataset, obtained from here (https://github.com/datasets/co2-ppm-daily/tree/master/data).
-# #
-# # Using Python (csv) calculate the following:
-# #
-# # Annual average for each year in the dataset.
-# # Minimum, maximum and average for the entire dataset.
-# # Seasonal average if Spring (March, April, May), Summer (June, July, August), Autumn (September, October, November)
-# # and Winter (December, January, February).
-# # Calculate the anomaly for each value in the dataset relative to the mean for the entire time series.
+import csv, math, time
+from datetime import date
 
-######
-## Notes
-######
-
-import csv # Allow me the functions to write to and from a .csv
-
-value_list = [] # This something that I can write data back to.
-date_list = []
+value_list = []
 
 with open("co2-ppm-daily (1).csv") as daily_co2_csv:
-    # "open" opens the named .csv file.
-    # "as" names the opened file as the name following "as".
-    # "with" ensures that the .csv is closed after opening.
-    # So; with open("x.csv") as example_name:
+
     csv_reader = csv.reader(daily_co2_csv, delimiter=',')
-            # "csv_reader = x" This will set "csv_reader" as equal to the following
-            # "csv.reader" the reader takes "population_csv" (equal to "co2-ppm-daily (1).csv") and the delimiter.
-            # "csv.reader()" will be able to look at each individual value in the .csv
-            # "delimiter=','" sets "," as seperators.
-    line_count = 0
+
     next(csv_reader)
     for row in csv_reader:
-        # The for statement is used to iterate over the elements of a sequence (such as a string, tuple or list) or other iterable object.
-        # "If" will test if its following text is true.
-        print(value_list.append(float(row[1])))
-        print(date_list.append((row[0])))
-        if line_count == 0:
-            print("Column names are: " + str(row)) # now the column headers are 0, 1, 2, 3 stored in a string
-            line_count += 0
-        line_count += 1
-        print("Processed " + str(line_count) + " lines.") # tells me if I did this correctly.
+        (value_list.append(float(row[1])))
 
-print("The minimum for entire dataset is: " + str(min(value_list)))
-print("The maximum for the entire dataset is: " + str(max(value_list)))
-print("The average for entire dataset is: " + str(sum(value_list) / len(value_list))) # takes sum of value list, divides
-# it by value_list len. "len gives the number of items in the container.
+minimum = min(value_list)
+maximum = max(value_list)
+mean = sum(value_list) / len(value_list)
 
-# print(value_list)
-# print(date_list) # just seeing what these are calling for
+print("# 2: The minimum for entire dataset is: " + str(minimum))
+print("# 2: The maximum for the entire dataset is: " + str(maximum))
+print("# 2: The average for entire dataset is: " + str(mean))
 
-## At this point I made this python file capable of reading the csv file and
-## I have been able to read the columb headers from the .csv file in this environment.
-## Next, I need to pull values from the .csv, do operations with them, then print something like "The average value is x"
+anomaly_list = []
 
-### Here I play with an example from class to understand it. Next I will repurpose it for
-# # with open("co2-ppm-daily (1).csv") as daily_co2_csv:
-# #     next(daily_co2_csv) #skip first line
-# #     total = 0
-# #     print('total = ' + str(total))
-# #     for row in csv.reader(daily_co2_csv):
-# #         total += float(row[1]) #1 = 2nd column, in this case, co2 in ppm, remember Python uses zero indexing
-# #     print(format(total, 'f')) # format prints as float
-# #     print(total) # without we print as engineering notation
-# #     # Now look at the data, 3 hundred billion? Ah, we have multiple years..
+for value in value_list:
+    anomaly = (value - mean)
+    # print(deviation)
+    anomaly_list.append(anomaly)
+# print("# 4: The anomaly for each value relative to the mean: " + str(anomaly_list))
 
-# with open("co2-ppm-daily (1).csv") as daily_co2_csv:
-#     next(daily_co2_csv)
-#     average = 0
-#     for row in csv.reader(daily_co2_csv):
-#         average += float(row[1]) / 18766
-#         # average is the variable
-#         # += will add up all values in the column.
-#         # float will "Convert a string or number to a floating point number, if possible."
-#     print('average daily co2 = ' + format(average, 'f') + ' ppm') # format prints as float
+data = []
 
+# I created a list that holds all data from the .csv
+with open("co2-ppm-daily (1).csv") as daily_co2_csv:
+    csv_reader = csv.reader(daily_co2_csv, delimiter=',')
+    next(csv_reader)
+    for row in csv_reader:
+        data.append(row[0] + row[1])
+# print(data)
 
+for row in data:
+    print(date.year)
