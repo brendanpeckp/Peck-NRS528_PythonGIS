@@ -2,7 +2,7 @@ import os, arcpy
 arcpy.env.overwriteOutput = True
 #######################################################################################################################
 # USERS: CHANGE YOUR WORKSPACE FILEPATH BETWEEN THE QUOTATION MARKS.
-workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challanges\challenge_04_take2"
+workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_04"
 #######################################################################################################################
 arcpy.env.workspace = workspace
 in_features = os.path.join("gem_active_faults_harmonized.shp")

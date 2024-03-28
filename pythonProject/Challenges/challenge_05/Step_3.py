@@ -1,7 +1,7 @@
 #####
 # Step 3 - Executing multiple tools - and automating most of it
 #####
-import os.path
+import os
 
 # We will use the exact same approach to generate a heatmap from a CSV file, but this time
 # You will have to automate the extraction of start extent, opposite corner etc for the fishnet
@@ -19,7 +19,7 @@ import arcpy
 
 arcpy.env.overwriteOutput = True
 
-arcpy.env.workspace = r"C:\Peck-NRS528_PythonGIS\pythonProject\Classes\05_scripts"
+arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_05"
 
 in_Table = os.path.join(r"Step_3_Cepphus_grylle.csv")
 x_coords = "lon"
