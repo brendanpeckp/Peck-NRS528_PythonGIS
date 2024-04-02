@@ -23,34 +23,81 @@ import arcpy
 #         print("Dataset not found, please check the file path..")
 
 
-def describe_shp(input_shapefile):
-
-    if arcpy.Exists(input_shapefile):
-        desc = arcpy.Describe(input_shapefile)
-        print("Describing: " + str(input_shapefile))
-        if desc.dataType == "ShapeFile":
-            shapetype = desc.shapeType
-            spreftype = desc.spatialReference.type
-            sprefname = desc.spatialReference.name
-        else:
-            print("Input data not ShapeFile..")
-    else:
-        print("Dataset not found, please check the file path..")
-
-    return shapetype, sprefname, spreftype
-
-
-input_shapefile = r"C:\Data\Course_ArcGIS_Python\Classes\08_Functions\DataFolder_Step_5_Data\RI_Roads.shp"
-shapetype, sprefname, spreftype = describe_shp(input_shapefile)
-
-print(shapetype)
-print(sprefname)
-print(spreftype)
+# def describe_shp(input_shapefile):
+#
+#     if arcpy.Exists(input_shapefile):
+#         desc = arcpy.Describe(input_shapefile)
+#         print("Describing: " + str(input_shapefile))
+#         if desc.dataType == "ShapeFile":
+#             shapetype = desc.shapeType
+#             spreftype = desc.spatialReference.type
+#             sprefname = desc.spatialReference.name
+#         else:
+#             print("Input data not ShapeFile..")
+#     else:
+#         print("Dataset not found, please check the file path..")
+#
+#     return shapetype, sprefname, spreftype
+#
+#
+# input_shapefile = r"C:\Data\Course_ArcGIS_Python\Classes\08_Functions\DataFolder_Step_5_Data\RI_Roads.shp"
+# shapetype, sprefname, spreftype = describe_shp(input_shapefile)
+#
+# print(shapetype)
+# print(sprefname)
+# print(spreftype)
 
 
 # Task 1 - Using the Places.shp provided, extend the describe_shp function to include the following outputs: 1) Coordinate system used, 2) Coordinate system type
 # Hint: you can find these at https://pro.arcgis.com/en/pro-app/arcpy/functions/describe.htm, and print them out in a well formatted style.
 
+# def describe_shp(input_shapefile):
+#
+#     if arcpy.Exists(input_shapefile):
+#         desc = arcpy.Describe(input_shapefile)
+#         print("Describing: " + str(input_shapefile))
+#         if desc.dataType == "ShapeFile":
+#             shapetype = desc.shapeType
+#             spreftype = desc.spatialReference.type
+#             sprefname = desc.spatialReference.name
+#             print(shapetype)
+#             print(sprefname)
+#             print(spreftype)
+#         else:
+#             print("Input data not ShapeFile..")
+#     else:
+#         print("Dataset not found, please check the file path..")
+#
+#     return shapetype, sprefname, spreftype
+#
+#
+# input_shapefile = r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\08_functions\Step_5_Data\Places.shp"
+# shapetype, sprefname, spreftype = describe_shp(input_shapefile)
+#
+# print(describe_shp(input_shapefile))
 
 # Task 2 - Run your function on the RI_Roads.shp dataset, use only 1 line of code.
 
+def describe_shp(input_shapefile):
+    desc = arcpy.Describe(input_shapefile)
+    if arcpy.Exists(input_shapefile):
+
+        print("Describing: " + str(input_shapefile))
+        if desc.dataType == "ShapeFile":
+            print(desc.shapeType)
+            print(desc.spatialReference.type)
+            print(desc.spatialReference.name)
+        else:
+            print("Input data not ShapeFile..")
+    else:
+        print("Dataset not found, please check the file path..")
+
+# Multiple line call.
+# input_shapefile = r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\08_functions\Step_5_Data\Places.shp"
+# describe_shp(input_shapefile)
+
+# one line call
+# print(describe_shp(r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\08_functions\Step_5_Data\Places.shp"))
+
+# call roads with one line
+print(describe_shp(r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\08_functions\Step_5_Data\RI_Roads.shp"))
