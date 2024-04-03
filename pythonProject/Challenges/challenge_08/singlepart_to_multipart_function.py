@@ -32,4 +32,6 @@ def singlepart_to_multipart(in_features): # Declares the name of the function.
 # This line will do tha same as the last, but with RI roads from RIGIS. It will replace the previous output.
 singlepart_to_multipart(os.path.join(r"InputData_2_RoadsRI\TRANS_Roads_E911.shp"))
 
-arcpy.Buffer_analysis(os.path.join(r"OutputData\multipart_line.shp"))
+in_features = os.path.join(r"OutputData\multipart_line.shp")
+out_feature_roadsideArea = os.path.join("roadsideArea.shp")
+arcpy.analysis.Buffer(in_features, out_feature_roadsideArea, "100 Feet", "FULL", "ROUND", "", "")
