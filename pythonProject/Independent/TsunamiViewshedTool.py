@@ -143,8 +143,11 @@ minimum_allowed_distance = "1000 Meter"
 
 # Execute CreateRandomPoints
 arcpy.management.CreateRandomPoints(out_path, out_name, constraining_feature_class, "", number_of_points_or_field, minimum_allowed_distance, "MULTIPOINT", "")
+# Dissolve Points
 # 2D Viewshed
+toolbox = arcpy.AddToolbox(r"2D_Viewshed_Analysis.tbx")
 # Set variables
+
 ############
 # End of loop
 # Combine the outputs of the for loop into a single viewshed.
