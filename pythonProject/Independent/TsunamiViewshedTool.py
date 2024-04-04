@@ -23,7 +23,6 @@ setup_startTime = time.time()
 
 import os
 import arcpy
-from arcpy import env
 from arcpy.sa import *
 
 arcpy.env.overwriteOutput = True
@@ -143,7 +142,8 @@ minimum_allowed_distance = "1000 Meter"
 
 # Execute CreateRandomPoints
 arcpy.management.CreateRandomPoints(out_path, out_name, constraining_feature_class, "", number_of_points_or_field, minimum_allowed_distance, "MULTIPOINT", "")
-# Dissolve Points
+# Dissolve Random Points to a single multipart feature
+arcpy.Dissolve_management("C:\Peck_NRS528_PythonGIS\pythonProject\Independent\Temp\observationFeatures.shp", "C:\Peck_NRS528_PythonGIS\pythonProject\Independent\Temp\observationFeatureMultipart.shp", "", "", "MULTI_PART", "", "")
 # 2D Viewshed
 toolbox = arcpy.AddToolbox(r"2D_Viewshed_Analysis.tbx")
 # Set variables
