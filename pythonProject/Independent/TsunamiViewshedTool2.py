@@ -2,8 +2,8 @@
 # 1st is World Countries from https://uri.maps.arcgis.com/home/item.html?id=ac80670eb213440ea5899bbf92a04998&sublayer=0
 # 2nd is GEM active faults from https://github.com/GEMScienceTools/gem-global-active-faults/tree/master/shapefile
 # Both should be clipped to your study area and must be projected in meters.
-# Name your Countries vector as "SampleCountires_poly.shp"
-# Name your Faults vector as "SampleFaults_lines.shp"
+# Reset the variable "Countries_Polygons" to your countries data.
+# Reset the variable "faults" to your seismic fault data.
 
 # Table of Contents for Script
 ## Setup
@@ -139,4 +139,3 @@ for iteration in range(50):
 ############
 # End of loop
 # Combine the outputs of the for loop into a single viewshed.
-# Delete temp
