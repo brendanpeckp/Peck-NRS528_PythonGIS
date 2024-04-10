@@ -26,6 +26,7 @@
 import os
 import arcpy
 from arcpy.sa import *
+import shutil
 
 arcpy.env.overwriteOutput = True
 
@@ -49,7 +50,7 @@ print("The temporary directory is named " + str(Temporary_Directory))
 # Set local variables
 Countries_Polygons = "IndonesiaCountries_DGM95UTMz50S.shp"
 Countries_Raster = r"Temp\Countries_Raster.tif"
-cellSize = 5000
+cellSize = 50000
 field = "COUNTRY"
 
 # Run FeatureToRaster and describe output
@@ -101,10 +102,18 @@ if os.path.exists(r"Temp\oceanFaults.shp") is False:
     print("The intermediate data (oceanFaults.shp) was deleted successfully!")
 else:
     print("The intermediate data (oceanFaults.shp) was NOT deleted successfully.")
-
+# Create a directory to contain all viewsheds
+print("Checking for Combine_Viewshed directory...")
+if os.path.exists("Combine_Viewshed") is False:
+    os.mkdir("Combine_Viewshed")
+    print("The Combine_Viewshed directory was created successfully!")
+else:
+    print("The Combine_Viewshed directory was already created.")
+Combine_Viewshed = "Combine_Viewshed"
+print("The Combine_Viewshed directory is named " + str(Combine_Viewshed))
 # Begin Loop
 ############
-for iteration in range(50):
+for iteration in range(3):
     # unique ID
     unique_id = iteration
     print("Start " + str(unique_id))
@@ -130,6 +139,7 @@ for iteration in range(50):
     # Set variables and run the 2D Script
     print("Create viewshed for " + str(unique_id))
     toolbox.Script(fr"Viewshed_{unique_id}\observationMultiPoints.shp", r"Temp\Land1_ElseNull.tif", cellSize, f"Viewshed_{unique_id}")
+
 ############
 # End of loop
 # Combine the outputs of the for loop into a single viewshed.

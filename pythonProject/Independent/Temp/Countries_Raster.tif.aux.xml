@@ -13,18 +13,18 @@
         <BucketCount>22</BucketCount>
         <IncludeOutOfRange>1</IncludeOutOfRange>
         <Approximate>0</Approximate>
-        <HistCounts>109227|236|7574|9184|5|0|30|346|79718|0|8304|13508|15|5091|15|20|23113|11958|27|21277|616|11253</HistCounts>
+        <HistCounts>1098|4|75|92|0|0|0|4|795|0|81|132|0|53|0|0|226|110|1|212|7|116</HistCounts>
       </HistItem>
     </Histograms>
     <Metadata>
       <MDI key="RepresentationType">THEMATIC</MDI>
       <MDI key="STATISTICS_MAXIMUM">22</MDI>
-      <MDI key="STATISTICS_MEAN">8.3238955017462</MDI>
+      <MDI key="STATISTICS_MEAN">8.2777777777778</MDI>
       <MDI key="STATISTICS_MEDIAN">nan</MDI>
       <MDI key="STATISTICS_MINIMUM">1</MDI>
       <MDI key="STATISTICS_SKIPFACTORX">1</MDI>
       <MDI key="STATISTICS_SKIPFACTORY">1</MDI>
-      <MDI key="STATISTICS_STDDEV">6.9743966945944</MDI>
+      <MDI key="STATISTICS_STDDEV">6.9817698330616</MDI>
     </Metadata>
   </PAMRasterBand>
 </PAMDataset>
