@@ -34,8 +34,6 @@ import sys
 print(sys.version)
 print(sys.executable)
 
-print(sys.argv[1])
-
 print("cat: " + str(sys.argv[1]))
 print("squid: " + str(sys.argv[2]))
 print("dog: " + str(sys.argv[3]))
