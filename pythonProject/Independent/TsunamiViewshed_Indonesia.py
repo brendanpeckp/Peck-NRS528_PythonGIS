@@ -187,89 +187,93 @@ for iteration in range(100):
     # Move the renamed viewpoints and viewsheds to the Combined_Viewpoints and Combined_Viewshed directories.
     ## Move viewsheds
     ### Move .img
-    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img", fr"Combine_Viewshed\viewshed_{unique_id}.img")
-    print(".img was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img" + " to "
-          + fr"Combine_Viewshed\viewshed_{unique_id}.img" + " successfully!")
-    ### Move .img.aux.xml
-    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml", fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml")
-    print(".img.aux.xml was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml" + " to "
-          + fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml" + " successfully!")
-    ### Move .img.vat.dbf
-    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf")
-    print(".img.vat.dbf was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf" + " to "
-          + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf" + " successfully!")
-    ### Move .img.vat.cpg
-    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg")
-    print(".img.vat.cpg was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg" + " to "
-          + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg" + " successfully!")
-    ## Move viewpoints
-    ### Move .cpg
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg")
-    print("Viewpoints .cpg was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg" + " successfully!")
-    ### Move .dbf
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf")
-    print("Viewpoints .dbf was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf" + " successfully!")
-    ### Move .prj
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj")
-    print("Viewpoints .prj was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj" + " successfully!")
-    ### Move .sbn
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn")
-    print("Viewpoints .sbn was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn" + " successfully!")
-    ### Move .sbx
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx")
-    print("Viewpoints .sbx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx" + " successfully!")
-    ### Move .shp
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp")
-    print("Viewpoints .shp was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp" + " successfully!")
-    ### Move .shp.xml
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml")
-    print("Viewpoints .shp.xml was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml" + " successfully!")
-    ### Move .shx
-    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx",
-                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx")
-    print("Viewpoints .shx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx" + " to "
-          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx" + " successfully!")
-    # Delete empty directories
-    os.rmdir(f"Viewshed_{unique_id}")
-    print("Removed the empty directory.")
-    # expand all viewsheds
-    outExpand = Expand(fr"Combine_Viewshed\viewshed_{unique_id}.img", 5, 1, "MORPHOLOGICAL")
-    outExpand.save(rf"expanded_viewsheds\expanded_viewshed_{unique_id}.img")
-############
-# End of loop
-# Change workspace
-# arcpy.listRasters
-# loop through list to 
-start_final_output_time = time.time()
-end_viewpoints_and_viewshed_loop_time = time.time()
-
-# Create a final viewshed output layer.
-
-
-
-# Clean up directories
-
-# run times
-preperation_time = end_preperation_time - start_time
-print("Data preperation took " + str(preperation_time) + " seconds to run.")
-viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - start_viewpoints_and_viewshed_loop_time
-print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
-end_time = time.time()
-final_output_time = end_time - start_final_output_time
-print("Final output took " + str(final_output_time) + " seconds to run.")
-run_time = end_time - start_time
-print("It took " + str(run_time) + "seconds to run the script.")
+    arcpy.management.CopyRaster(in_raster, out_rasterdataset, {config_keyword}, {background_value}, {nodata_value},
+                                {onebit_to_eightbit}, {colormap_to_RGB}, {pixel_type}, {scale_pixel_value},
+                                {RGB_to_Colormap}, {format}, {transform}, {process_as_multidimensional},
+                                {build_multidimensional_transpose})
+    # shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img", fr"Combine_Viewshed\viewshed_{unique_id}.img")
+    # print(".img was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img" + " to "
+    #       + fr"Combine_Viewshed\viewshed_{unique_id}.img" + " successfully!")
+    # ### Move .img.aux.xml
+    # shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml", fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml")
+    # print(".img.aux.xml was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml" + " to "
+    #       + fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml" + " successfully!")
+    # ### Move .img.vat.dbf
+    # shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf")
+    # print(".img.vat.dbf was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf" + " to "
+    #       + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf" + " successfully!")
+    # ### Move .img.vat.cpg
+    # shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg")
+    # print(".img.vat.cpg was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg" + " to "
+    #       + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg" + " successfully!")
+#     ## Move viewpoints
+#     ### Move .cpg
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg")
+#     print("Viewpoints .cpg was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg" + " successfully!")
+#     ### Move .dbf
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf")
+#     print("Viewpoints .dbf was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf" + " successfully!")
+#     ### Move .prj
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj")
+#     print("Viewpoints .prj was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj" + " successfully!")
+#     ### Move .sbn
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn")
+#     print("Viewpoints .sbn was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn" + " successfully!")
+#     ### Move .sbx
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx")
+#     print("Viewpoints .sbx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx" + " successfully!")
+#     ### Move .shp
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp")
+#     print("Viewpoints .shp was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp" + " successfully!")
+#     ### Move .shp.xml
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml")
+#     print("Viewpoints .shp.xml was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml" + " successfully!")
+#     ### Move .shx
+#     shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx",
+#                 fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx")
+#     print("Viewpoints .shx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx" + " to "
+#           + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx" + " successfully!")
+#     # Delete empty directories
+#     os.rmdir(f"Viewshed_{unique_id}")
+#     print("Removed the empty directory.")
+#     # expand all viewsheds
+#     outExpand = Expand(fr"Combine_Viewshed\viewshed_{unique_id}.img", 5, 1, "MORPHOLOGICAL")
+#     outExpand.save(rf"expanded_viewsheds\expanded_viewshed_{unique_id}.img")
+# ############
+# # End of loop
+# # Change workspace
+# # arcpy.listRasters
+# # loop through list to
+# start_final_output_time = time.time()
+# end_viewpoints_and_viewshed_loop_time = time.time()
+#
+# # Create a final viewshed output layer.
+#
+#
+#
+# # Clean up directories
+#
+# # run times
+# preperation_time = end_preperation_time - start_time
+# print("Data preperation took " + str(preperation_time) + " seconds to run.")
+# viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - start_viewpoints_and_viewshed_loop_time
+# print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
+# end_time = time.time()
+# final_output_time = end_time - start_final_output_time
+# print("Final output took " + str(final_output_time) + " seconds to run.")
+# run_time = end_time - start_time
+# print("It took " + str(run_time) + "seconds to run the script.")
