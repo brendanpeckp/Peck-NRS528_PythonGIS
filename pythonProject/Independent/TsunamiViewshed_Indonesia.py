@@ -22,7 +22,8 @@
 ### 2D Viewshed Batch For-Loop
 ## Cleanup
 ## Output
-
+import time
+start_time = time.time()
 import os
 import arcpy
 from arcpy.sa import *
@@ -50,7 +51,7 @@ print("The temporary directory is named " + str(Temporary_Directory))
 # Set local variables
 Countries_Polygons = "IndonesiaCountries_DGM95UTMz50S.shp"
 Countries_Raster = r"Temp\Countries_Raster.tif"
-cellSize = 50000
+cellSize = 100000
 field = "COUNTRY"
 
 # Run FeatureToRaster and describe output
@@ -102,6 +103,7 @@ if os.path.exists(r"Temp\oceanFaults.shp") is False:
     print("The intermediate data (oceanFaults.shp) was deleted successfully!")
 else:
     print("The intermediate data (oceanFaults.shp) was NOT deleted successfully.")
+
 # Create a directory to contain all viewsheds
 print("Checking for Combine_Viewshed directory...")
 if os.path.exists("Combine_Viewshed") is False:
@@ -111,9 +113,34 @@ else:
     print("The Combine_Viewshed directory was already created.")
 Combine_Viewshed = "Combine_Viewshed"
 print("The Combine_Viewshed directory is named " + str(Combine_Viewshed))
+
+# Create a directory to contain all viewpoints
+print("Checking for Combine_Viewpoints directory...")
+if os.path.exists("Combine_Viewpoints") is False:
+    os.mkdir("Combine_Viewpoints")
+    print("The Combine_Viewpoints directory was created successfully!")
+else:
+    print("The Combine_Viewpoints directory was already created.")
+Combine_Viewpoints = "Combine_Viewpoints"
+print("The Combine_Viewpoints directory is named " + str(Combine_Viewpoints))
+
+# Create a directory to contain all expanded viewsheds
+print("Checking for expanded_viewsheds directory...")
+if os.path.exists("expanded_viewsheds") is False:
+    os.mkdir("expanded_viewsheds")
+    print("The expanded_viewsheds directory was created successfully!")
+else:
+    print("The expanded_viewsheds directory was already created.")
+expanded_viewsheds = "expanded_viewsheds"
+print("The expanded_viewsheds directory is named " + str(expanded_viewsheds))
+
+end_preperation_time = time.time()
+
 # Begin Loop
 ############
-for iteration in range(3):
+start_viewpoints_and_viewshed_loop_time = time.time()
+
+for iteration in range(100):
     # unique ID
     unique_id = iteration
     print("Start " + str(unique_id))
@@ -127,19 +154,122 @@ for iteration in range(3):
     # Run CreateRandomPoints
     print("CreateRandomPoints for " + str(unique_id))
     arcpy.management.CreateRandomPoints("Temp", "observationPoints.shp", r"Temp\multipart_oceanFaults.shp", "",
-                                        20, "1000 Meter",
+                                        25, "1000 Meter",
                                         "POINT", "")
     # Dissolve Random Points to a single multipart feature
     print("Dissolve for " + str(unique_id))
     arcpy.Dissolve_management(r"Temp\observationPoints.shp",
-                              fr"Viewshed_{unique_id}\observationMultiPoints.shp",
+                              fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp",
                               "", "", "MULTI_PART", "", "")
     # 2D Viewshed
     toolbox = arcpy.AddToolbox(r"2D_Viewshed_Analysis.tbx")
     # Set variables and run the 2D Script
     print("Create viewshed for " + str(unique_id))
-    toolbox.Script(fr"Viewshed_{unique_id}\observationMultiPoints.shp", r"Temp\Land1_ElseNull.tif", cellSize, f"Viewshed_{unique_id}")
-
+    toolbox.Script(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp", r"Temp\Land1_ElseNull.tif",
+                   cellSize, f"Viewshed_{unique_id}")
+    # rename viewshed out puts to allow them to be put into the raster calculator later. Must rename all four parts.
+    ## rename viewshed_0.img to viewshed_{unique_id}.img
+    os.rename(fr"Viewshed_{unique_id}\viewshed_0.img", fr"Viewshed_{unique_id}\viewshed_{unique_id}.img")
+    print("The .img was successfully renamed from " + fr"Viewshed_{unique_id}\viewshed_0.img" + " to " +
+          fr"Viewshed_{unique_id}\viewshed_{unique_id}.img")
+    ## rename viewshed_0.img.aux.xml to viewshed_{unique_id}.img.aux.xml
+    os.rename(fr"Viewshed_{unique_id}\viewshed_0.img.aux.xml", fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml")
+    print("The .img.aux.xml was successfully renamed from " + fr"Viewshed_{unique_id}\viewshed_0.img.aux.xml" + " to " +
+          fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml")
+    ## rename viewshed_0.img.vat.dbf to viewshed_{unique_id}.img.vat.dbf
+    os.rename(fr"Viewshed_{unique_id}\viewshed_0.img.vat.dbf", fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf")
+    print("The .img.vat.dbf was successfully renamed from " + fr"Viewshed_{unique_id}\viewshed_0.img.vat.dbf" + " to " +
+          fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf")
+    ## rename viewshed_0.img.vat.cpg to viewshed_{unique_id}.img.vat.cpg
+    os.rename(fr"Viewshed_{unique_id}\viewshed_0.img.vat.cpg", fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg")
+    print("The .img.vat.cpg was successfully renamed from " + fr"Viewshed_{unique_id}\viewshed_0.img.vat.cpg" + " to " +
+          fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg")
+    # Move the renamed viewpoints and viewsheds to the Combined_Viewpoints and Combined_Viewshed directories.
+    ## Move viewsheds
+    ### Move .img
+    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img", fr"Combine_Viewshed\viewshed_{unique_id}.img")
+    print(".img was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img" + " to "
+          + fr"Combine_Viewshed\viewshed_{unique_id}.img" + " successfully!")
+    ### Move .img.aux.xml
+    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml", fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml")
+    print(".img.aux.xml was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.aux.xml" + " to "
+          + fr"Combine_Viewshed\viewshed_{unique_id}.img.aux.xml" + " successfully!")
+    ### Move .img.vat.dbf
+    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf")
+    print(".img.vat.dbf was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.dbf" + " to "
+          + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.dbf" + " successfully!")
+    ### Move .img.vat.cpg
+    shutil.move(fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg", fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg")
+    print(".img.vat.cpg was moved from " + fr"Viewshed_{unique_id}\viewshed_{unique_id}.img.vat.cpg" + " to "
+          + fr"Combine_Viewshed\viewshed_{unique_id}.img.vat.cpg" + " successfully!")
+    ## Move viewpoints
+    ### Move .cpg
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg")
+    print("Viewpoints .cpg was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.cpg" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.cpg" + " successfully!")
+    ### Move .dbf
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf")
+    print("Viewpoints .dbf was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.dbf" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.dbf" + " successfully!")
+    ### Move .prj
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj")
+    print("Viewpoints .prj was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.prj" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.prj" + " successfully!")
+    ### Move .sbn
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn")
+    print("Viewpoints .sbn was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbn" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbn" + " successfully!")
+    ### Move .sbx
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx")
+    print("Viewpoints .sbx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.sbx" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.sbx" + " successfully!")
+    ### Move .shp
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp")
+    print("Viewpoints .shp was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp" + " successfully!")
+    ### Move .shp.xml
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml")
+    print("Viewpoints .shp.xml was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shp.xml" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shp.xml" + " successfully!")
+    ### Move .shx
+    shutil.move(fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx",
+                fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx")
+    print("Viewpoints .shx was moved from " + fr"Viewshed_{unique_id}\observationMultiPoints_{unique_id}.shx" + " to "
+          + fr"Combine_Viewpoints\observationMultiPoints_{unique_id}.shx" + " successfully!")
+    # Delete empty directories
+    os.rmdir(f"Viewshed_{unique_id}")
+    print("Removed the empty directory.")
+    # expand all viewsheds
+    outExpand = Expand(fr"Combine_Viewshed\viewshed_{unique_id}.img", 5, 1, "MORPHOLOGICAL")
+    outExpand.save(rf"expanded_viewsheds\expanded_viewshed_{unique_id}.img")
 ############
 # End of loop
-# Combine the outputs of the for loop into a single viewshed.
+# Change workspace
+# arcpy.listRasters
+# loop through list to 
+start_final_output_time = time.time()
+end_viewpoints_and_viewshed_loop_time = time.time()
+
+# Create a final viewshed output layer.
+
+
+
+# Clean up directories
+
+# run times
+preperation_time = end_preperation_time - start_time
+print("Data preperation took " + str(preperation_time) + " seconds to run.")
+viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - start_viewpoints_and_viewshed_loop_time
+print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
+end_time = time.time()
+final_output_time = end_time - start_final_output_time
+print("Final output took " + str(final_output_time) + " seconds to run.")
+run_time = end_time - start_time
+print("It took " + str(run_time) + "seconds to run the script.")
