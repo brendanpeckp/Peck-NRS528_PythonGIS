@@ -5,7 +5,7 @@ arcpy.env.overwriteOutput = True
 workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_04"
 #######################################################################################################################
 arcpy.env.workspace = workspace
-in_features = os.path.join("gem_active_faults_harmonized.shp")
+in_features = "gem_active_faults_harmonized.shp"
 describe_in_features = arcpy.Describe(os.path.join("gem_active_faults_harmonized.shp"))
 print("The input data, " + str(describe_in_features.name) + " is a " + str(describe_in_features.dataType))
 out_feature_class = os.path.join("faults_dissolved.shp")
