@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20240411</CreaDate><CreaTime>17514300</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files\arcgis\pro\Resources\ArcToolbox\toolboxes\Data Management Tools.tbx\CreateRandomPoints" Date="20240411" Time="175143">CreateRandomPoints Temp observationPoints.shp Temp\multipart_oceanFaults.shp "0 0 250 250" 25 "1000 Meters" POINT 0</Process></lineage></DataProperties></Esri></metadata>
