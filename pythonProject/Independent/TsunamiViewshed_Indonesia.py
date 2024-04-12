@@ -10,6 +10,7 @@
 #! integer represented by the variable "cellSize". I have set it to 50,000 by defalt, but I want my output to be a bit more granular.
 #@ Input data
 #$ Iterations; For the for loop you can change the integer to get more or less iterations of the loop
+#% Number of cells to expand by in the Expand tool.
 
 # Table of Contents for Script
 ## Setup
@@ -261,13 +262,18 @@ for raster in expanded_rasters:
     outIsNull = IsNull(raster)
     print(outIsNull.save(f"binary_{raster_number}"))
 binary_rasters = arcpy.ListRasters("binary_expanded_viewshed*", "IMG")
-for binary_raster in binary_rasters:
+for i in binary_rasters:
     # list rasters
-    binary_raster_number = binary_raster
+    binary_raster_number = i
     print(f"binary_raster_{binary_raster_number}")
-    flip_binary = EqualTo(binary_raster, 0)
-    print(flip_binary.save("tsunamiZone1_else0"))
-# Combine the expanded viewsheds together.
+    flip_binary = EqualTo(i, 0)
+    print(flip_binary.save(f"view1_{binary_raster_number}"))
+# Combine the expanded viewsheds together using raster calculator
+## Create list of prepared viewsheds
+viewshed_list = []
+arcpy.ListRasters(expanded_viewsheds, "IMG")
+## Create a string that can be used as an expression in RasterCalculator
+## run RasterCalculator
 ## Change workspace
 # arcpy.env.workspace("expanded_viewsheds")
 ## convert expanded_viewshed from 1-else-null to 1-else-0
