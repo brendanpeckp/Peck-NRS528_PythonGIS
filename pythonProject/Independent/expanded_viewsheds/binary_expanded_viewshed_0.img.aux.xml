@@ -11,7 +11,7 @@
         <BucketCount>2</BucketCount>
         <IncludeOutOfRange>1</IncludeOutOfRange>
         <Approximate>0</Approximate>
-        <HistCounts>2017|1817</HistCounts>
+        <HistCounts>2445|1389</HistCounts>
       </HistItem>
     </Histograms>
     <Metadata domain="IMAGE_STRUCTURE">
@@ -23,12 +23,12 @@
       <MDI key="RepresentationType">ATHEMATIC</MDI>
       <MDI key="STATISTICS_EXCLUDEDVALUES"></MDI>
       <MDI key="STATISTICS_MAXIMUM">1</MDI>
-      <MDI key="STATISTICS_MEAN">0.47391757955138</MDI>
+      <MDI key="STATISTICS_MEAN">0.3622848200313</MDI>
       <MDI key="STATISTICS_MEDIAN">nan</MDI>
       <MDI key="STATISTICS_MINIMUM">0</MDI>
       <MDI key="STATISTICS_SKIPFACTORX">1</MDI>
       <MDI key="STATISTICS_SKIPFACTORY">1</MDI>
-      <MDI key="STATISTICS_STDDEV">0.49938437392787</MDI>
+      <MDI key="STATISTICS_STDDEV">0.48072320967963</MDI>
     </Metadata>
   </PAMRasterBand>
 </PAMDataset>

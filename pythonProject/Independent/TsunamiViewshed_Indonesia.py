@@ -262,17 +262,30 @@ for raster in expanded_rasters:
     outIsNull = IsNull(raster)
     print(outIsNull.save(f"binary_{raster_number}"))
 binary_rasters = arcpy.ListRasters("binary_expanded_viewshed*", "IMG")
+# Create binary_expanded_viewshed directory
+print("Checking for binary_expanded_viewsheds directory...")
+if os.path.exists("binary_expanded_viewsheds") is False:
+    os.mkdir("binary_expanded_viewsheds")
+    print("The binary_expanded_viewsheds directory was created successfully!")
+else:
+    print("The binary_expanded_viewsheds directory was already created.")
+binary_expanded_viewsheds = "binary_expanded_viewsheds"
+print("The binary_expanded_viewsheds directory is named " + str(binary_expanded_viewsheds))
 for i in binary_rasters:
     # list rasters
     binary_raster_number = i
     print(f"binary_raster_{binary_raster_number}")
-    flip_binary = EqualTo(i, 0)
-    print(flip_binary.save(f"view1_{binary_raster_number}"))
+    binary_expanded = EqualTo(i, 0)
+    print(binary_expanded.save(fr"binary_expanded_viewsheds\view1_{binary_raster_number}"))
 # Combine the expanded viewsheds together using raster calculator
 ## Create list of prepared viewsheds
-viewshed_list = []
-arcpy.ListRasters(expanded_viewsheds, "IMG")
+arcpy.env.workspace = "binary_expanded_viewsheds"
+rasters = arcpy.ListRasters(raster_type = "IMG")
+print(rasters)
 ## Create a string that can be used as an expression in RasterCalculator
+expression = ""
+for raster in rasters:
+
 ## run RasterCalculator
 ## Change workspace
 # arcpy.env.workspace("expanded_viewsheds")
