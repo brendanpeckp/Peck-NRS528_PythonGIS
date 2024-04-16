@@ -306,8 +306,11 @@ for raster in rasters:
 print("AFTER LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
 print("AFTER LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
 ### create a for loop that directly adds all of the raster objects together.
-for
-
+for object in raster_objects:
+    print(object)
+    sum_raster_objects = sum_raster_objects + object
+# sum_raster_objects.save("combined_raster_nonbinary")
+# print("sum_raster_objects is and is type of: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
 
 
 
