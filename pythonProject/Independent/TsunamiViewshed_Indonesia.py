@@ -279,20 +279,38 @@ for i in binary_rasters:
     print(binary_expanded.save(fr"binary_expanded_viewsheds\view1_{binary_raster_number}"))
 # Combine the expanded viewsheds together using raster calculator
 ## Create list of prepared viewsheds
+### Set workspace
 arcpy.env.workspace = "binary_expanded_viewsheds"
+### create list of rasters
 rasters = arcpy.ListRasters(raster_type = "IMG")
-print(rasters)
-## Create a string that can be used as an expression in RasterCalculator
-expression = ""
+### chack the list of rasters and check if it is a list
+print("The type for rasters is: " + str(type(rasters)))
+print("The rasters are: " + str(rasters))
+### create an empty raster_objects list to populate later
+raster_objects = []
+### create a for loop that removes the first raster object, then adds the second to the removed, then the next iteration
+### and on and on.
 for raster in rasters:
+    #### Create raster objects. These are data types that can be added together directly.
+    a_raster_object = arcpy.sa.Raster(raster)
+    #### append to the empty raster_objects list that you prior created
+    raster_objects.append(raster_objects)
+    print("INSIDE LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
+    #### the method of "pop(integer) will take an object as specified by the integer from a list and "pop it out", in
+    #### other words, it will remove the object and return it to you.
+    #### This method will be used on raster_objects.
+    #### Assign it a variable in order to call it many times in the loop. We are going to add all rasters to the popped raster.
+    sum_raster_objects = raster_objects.pop(0)
+    print("INSIDE LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+### check the loop!
+print("AFTER LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
+print("AFTER LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+### create a for loop that directly adds all of the raster objects together.
+for
 
-## run RasterCalculator
-## Change workspace
-# arcpy.env.workspace("expanded_viewsheds")
-## convert expanded_viewshed from 1-else-null to 1-else-0
-# binary_viewshed = IsNull()
-## Create a list of raster names (only .img) with arcpy.listRasters
-## Use a loop to go through the file list and create an expression to be used in the RasterCalculator
+
+
+
 start_final_output_time = time.time()
 end_viewpoints_and_viewshed_loop_time = time.time()
 
@@ -307,6 +325,6 @@ viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - star
 print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
 end_time = time.time()
 final_output_time = end_time - start_final_output_time
-print("Final output took " + str(final_output_time) + " seconds to run.")
-run_time = end_time - start_time
-print("It took " + str(run_time) + "seconds to run the script.")
+# print("Final output took " + str(final_output_time) + " seconds to run.")
+# run_time = end_time - start_time
+# print("It took " + str(run_time) + "seconds to run the script.")
