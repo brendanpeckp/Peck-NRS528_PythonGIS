@@ -85,8 +85,7 @@ points_with_photos = 'points_with_photos.shp'
 with_photos_where_clause = "photos = 'y'"
 
 
-arcpy.analysis.Select(inputShapefile, points_with_photos, with_photos_where_clause)
-
+arcpy.analysis.Select(inputShapefile, points_with_photos, "photos = 'y'")
 
 # arcpy.management.FeatureToPoint(points_with_photos, out_feature_class)
 
