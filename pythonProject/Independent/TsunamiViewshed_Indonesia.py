@@ -10,6 +10,7 @@
 #! integer represented by the variable "cellSize". I have set it to 50,000 by defalt, but I want my output to be a bit more granular.
 #@ Input data
 #$ Iterations; For the for loop you can change the integer to get more or less iterations of the loop
+#% Number of cells to expand by in the Expand tool.
 
 # Table of Contents for Script
 ## Setup
@@ -261,19 +262,58 @@ for raster in expanded_rasters:
     outIsNull = IsNull(raster)
     print(outIsNull.save(f"binary_{raster_number}"))
 binary_rasters = arcpy.ListRasters("binary_expanded_viewshed*", "IMG")
-for binary_raster in binary_rasters:
+# Create binary_expanded_viewshed directory
+print("Checking for binary_expanded_viewsheds directory...")
+if os.path.exists("binary_expanded_viewsheds") is False:
+    os.mkdir("binary_expanded_viewsheds")
+    print("The binary_expanded_viewsheds directory was created successfully!")
+else:
+    print("The binary_expanded_viewsheds directory was already created.")
+binary_expanded_viewsheds = "binary_expanded_viewsheds"
+print("The binary_expanded_viewsheds directory is named " + str(binary_expanded_viewsheds))
+for i in binary_rasters:
     # list rasters
-    binary_raster_number = binary_raster
+    binary_raster_number = i
     print(f"binary_raster_{binary_raster_number}")
-    flip_binary = EqualTo(binary_raster, 0)
-    print(flip_binary.save("tsunamiZone1_else0"))
-# Combine the expanded viewsheds together.
-## Change workspace
-# arcpy.env.workspace("expanded_viewsheds")
-## convert expanded_viewshed from 1-else-null to 1-else-0
-# binary_viewshed = IsNull()
-## Create a list of raster names (only .img) with arcpy.listRasters
-## Use a loop to go through the file list and create an expression to be used in the RasterCalculator
+    binary_expanded = EqualTo(i, 0)
+    print(binary_expanded.save(fr"binary_expanded_viewsheds\view1_{binary_raster_number}"))
+# Combine the expanded viewsheds together using raster calculator
+## Create list of prepared viewsheds
+### Set workspace
+arcpy.env.workspace = "binary_expanded_viewsheds"
+### create list of rasters
+rasters = arcpy.ListRasters(raster_type = "IMG")
+### chack the list of rasters and check if it is a list
+print("The type for rasters is: " + str(type(rasters)))
+print("The rasters are: " + str(rasters))
+### create an empty raster_objects list to populate later
+raster_objects = []
+### create a for loop that removes the first raster object, then adds the second to the removed, then the next iteration
+### and on and on.
+for raster in rasters:
+    #### Create raster objects. These are data types that can be added together directly.
+    a_raster_object = arcpy.sa.Raster(raster)
+    #### append to the empty raster_objects list that you prior created
+    raster_objects.append(raster_objects)
+    print("INSIDE LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
+    #### the method of "pop(integer) will take an object as specified by the integer from a list and "pop it out", in
+    #### other words, it will remove the object and return it to you.
+    #### This method will be used on raster_objects.
+    #### Assign it a variable in order to call it many times in the loop. We are going to add all rasters to the popped raster.
+    sum_raster_objects = raster_objects.pop(0)
+    print("INSIDE LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+### check the loop!
+print("AFTER LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
+print("AFTER LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+### create a for loop that directly adds all of the raster objects together.
+for object in raster_objects:
+    print(object)
+    sum_raster_objects = sum_raster_objects + object
+# sum_raster_objects.save("combined_raster_nonbinary")
+# print("sum_raster_objects is and is type of: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+
+
+
 start_final_output_time = time.time()
 end_viewpoints_and_viewshed_loop_time = time.time()
 
@@ -288,6 +328,6 @@ viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - star
 print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
 end_time = time.time()
 final_output_time = end_time - start_final_output_time
-print("Final output took " + str(final_output_time) + " seconds to run.")
-run_time = end_time - start_time
-print("It took " + str(run_time) + "seconds to run the script.")
+# print("Final output took " + str(final_output_time) + " seconds to run.")
+# run_time = end_time - start_time
+# print("It took " + str(run_time) + "seconds to run the script.")

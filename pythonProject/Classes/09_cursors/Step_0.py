@@ -1,0 +1,40 @@
+
+#####
+# Step 0 - Practice tasks before we start.
+#####
+
+import os
+
+# Express these items as a list using list append (i.e. .append) and print it:
+
+item1 = "woodlands.shp"
+item2 = "marshlands.shp"
+item3 = "beaches.shp"
+
+file_list = []
+
+file_list.append(item1)
+file_list.append(item2)
+file_list.append(item3)
+
+print(file_list)
+
+# How many files are in the list?
+print("There are " + str(len(file_list)) + " files in file_list.")
+
+# Take this list of files (file_list), and using a for loop, go through each file name and change
+# the file extension from shp to csv and print new_extension_file_list.
+
+new_extension_file_list = []
+
+for file in file_list:
+    file_name = file.split(".")
+    print(file_name)
+    new_extension_file_list.append(file_name[0] + ".csv")
+
+print(new_extension_file_list)
+
+# Hint: I would use something like filename.split(".") to extract the filename[0] which would be the
+# part of the name without the extension.
+
+
