@@ -58,13 +58,13 @@ with arcpy.da.SearchCursor("Step_1.csv", ['Crane', 'Time', 'X', 'Y']) as cursor:
         if row[0] not in crane_list:
             crane_list.append(row[0])
 
-print(crane_list)
+print(crane_list) # This is a list of all the submission types for a column in a table.
 print("There are " + str(len(crane_list)) + " cranes in the crane list.")
 
 # then 2: for each item in your generated list, add it to a dict, count occurrences and then 3: print your len(dict)
 # and print dict.
 
-crane_count = {}
+crane_count = {} # This is an empty dict
 
 for crane in crane_list:
     with arcpy.da.SearchCursor("Step_1.csv", ['Crane', 'Time', 'X', 'Y']) as cursor:
