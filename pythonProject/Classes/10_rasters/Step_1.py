@@ -20,6 +20,10 @@ arcpy.gp.ExtractValuesToPoints_sa("Great_Whites.shp", "sst_mean.tif", "Great_Whi
 # Task 1 -  Using a for loop, process all three *.tif files for SST (mean, min and max), you will need to edit the code from lines 11-15 above.
 # HInt: ZonalStats... is sensitive to file name output, you may need to use something that shortens the output table name:
 # e.g. file_name = raster[:6] + "_out.dbf"
+raster_list = arcpy.ListRasters()
+
+for raster in raster_list:
+
 
 # Task 2 - I want you to run the tool above on the rasters provided (mean, min and max). Think about how you will do this,
 # maybe search online about extracting multiple values to points, is here a different tool available to the above that

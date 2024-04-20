@@ -11,7 +11,7 @@
 import arcpy
 arcpy.CheckOutExtension("Spatial")
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = r"Z:\Andy's Documents\Teaching and students\URI\NRS - GIS Python Course\Github\Course_ArcGIS_Python\Classes\12_Rasters\Step_1_Data"
+arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\10_rasters\Step_1_Data"
 arcpy.gp.ZonalStatisticsAsTable_sa("Biogeography_Made_Up.shp", "Area", "sst_mean.tif", "sst_mean_zones.dbf", "DATA", "ALL")
 
 # Task 1 -  Using a for loop, process all three *.tif files for SST (mean, min and max), you will need to edit the code above.
@@ -21,6 +21,7 @@ arcpy.gp.ZonalStatisticsAsTable_sa("Biogeography_Made_Up.shp", "Area", "sst_mean
 raster_list = arcpy.ListRasters()
 
 for raster in raster_list:
+    print(raster)
     file_name = raster[:6] + "_out.dbf"
     arcpy.gp.ZonalStatisticsAsTable_sa("Biogeography_Made_Up.shp", "Area", raster, file_name, "DATA",
                                        "ALL")

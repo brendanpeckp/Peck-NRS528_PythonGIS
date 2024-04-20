@@ -16,7 +16,7 @@
 import arcpy
 
 arcpy.env.overwriteOutput = True
-arcpy.env.workspace = r"C:\Data\Course_ArcGIS_Python\Classes\10_Rasters\DataFolder\Step_2_Data"
+arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Classes\10_rasters\Step_3_Data"
 
 inRas = arcpy.Raster("etopo10")
 lowerLeft = arcpy.Point(inRas.extent.XMin,inRas.extent.YMin)
@@ -35,3 +35,7 @@ newRaster.save("etopo10_ft.tif")
 # Task: Using the etopo10 dataset and a NumPyArray, extract only land values, replacing them with null data and
 # create the resulting tif file. Hint: arr[arr < 0] = -9999, where -9999 is a null value
 
+arr[arr < 0] = -9999
+
+newRaster = arcpy.NumPyArrayToRaster(arr, lowerLeft, cellSize, value_to_nodata=-9999)
+newRaster.save("etopo10_land.tif")
