@@ -82,13 +82,10 @@ print('...')
 
 # With photos
 points_with_photos = 'points_with_photos.shp'
-with_photos_where_clause = "photos = 'y'"
 
+arcpy.analysis.Select(inputShapefile, points_with_photos, "photo = 'y'")
 
-arcpy.analysis.Select(inputShapefile, points_with_photos, with_photos_where_clause)
+# without photos
+points_without_photos = 'points_without_photos.shp'
 
-
-# arcpy.management.FeatureToPoint(points_with_photos, out_feature_class)
-
-# points_without_photos = 'points_without_photos.shp'
-# without_photos_where_clause = '"photos" = " "'
+arcpy.analysis.Select(inputShapefile, points_without_photos, "photo = ' '")
