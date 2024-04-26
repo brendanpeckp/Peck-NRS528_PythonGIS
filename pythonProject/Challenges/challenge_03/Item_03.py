@@ -40,19 +40,28 @@ import csv, math, time
 
 # Part 3
 
-months_list = []
+year_list = []
 
 with open("co2-ppm-daily (1).csv") as daily_co2_csv:
     csv_reader = csv.reader(daily_co2_csv, delimiter=',')
     next(csv_reader)
     for row in csv_reader:
-        month = row[0].split('-')[1]
-        if month not in months_list:
-            months_list.append(month)
+        year = row[0].split('-')[0]
+        if year not in year_list:
+            year_list.append(year)
 
-print(months_list)
+print(year_list)
 
-
+for year in year_list:
+    year_list_output = []
+    with open("co2-ppm-daily (1).csv") as daily_co2_csv:
+        csv_reader = csv.reader(daily_co2_csv, delimiter=',')
+        next(csv_reader)
+        for row in csv_reader:
+            year_test = row[0].split('-')[0]
+            if year == year_test:
+                year_list_output.append(float(row[1]))
+    print(str(year) + ": " + str(sum(year_list_output) / len(year_list_output)))
 
 
 # Seasonal average if Spring (March, April, May), Summer (June, July, August),
