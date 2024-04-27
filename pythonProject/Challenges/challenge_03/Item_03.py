@@ -55,7 +55,7 @@ print("The average for entire dataset is: " + str(mean))
 # # Part 3
 # Find seasonal average if Spring (March, April, May), Summer (June, July, August),
 # Autumn (September, October, November) and Winter (December, January, February).
-
+# Spring
 spring = ['03', '04', '05']
 
 spring_value = []
@@ -75,12 +75,62 @@ spring_value_avg = sum(spring_value) / len(spring_value)
 
 print("Spring avg = " + str(spring_value_avg))
 
-# copy for all seasons
+# Summer
+summer = ['06', '07', '08']
 
+summer_value = []
+
+with (open("co2-ppm-daily (1).csv") as daily_co2_csv):
+    csv_reader = csv.reader(daily_co2_csv, delimiter=',')
+    next(csv_reader)
+    for row in csv_reader:
+        month = row[0].split('-')[1]
+        if month in summer:
+            summer_value.append(float(row[1]))
+
+summer_value_avg = sum(summer_value) / len(summer_value)
+
+print("Summer avg = " + str(summer_value_avg))
+
+# Fall
+fall = ['09', '10', '11']
+
+fall_value = []
+
+with open("co2-ppm-daily (1).csv") as daily_co2_csv:
+    csv_reader = csv.reader(daily_co2_csv, delimiter=',')
+    next(csv_reader)
+    for row in csv_reader:
+        month = row[0].split('-')[1]
+        if month in fall:
+            fall_value.append(float(row[1]))
+
+
+fall_value_avg = sum(fall_value) / len(fall_value)
+
+print("Fall avg = " + str(fall_value_avg))
+
+# Winter
+winter = ['03', '04', '05']
+
+winter_value = []
+
+with open("co2-ppm-daily (1).csv") as daily_co2_csv:
+    csv_reader = csv.reader(daily_co2_csv, delimiter=',')
+    next(csv_reader)
+    for row in csv_reader:
+        month = row[0].split('-')[1]
+        if month in winter:
+            winter_value.append(float(row[1]))
+
+
+winter_value_avg = sum(winter_value) / len(winter_value)
+
+print("Winter avg = " + str(winter_value_avg))
 # Part 4
 anomaly_list = []
 for value in value_list:
     anomaly = (value - mean)
     # print(deviation)
     anomaly_list.append(anomaly)
-# print("# 4: The anomaly for each value relative to the mean: " + str(anomaly_list))
+print("# 4: The anomaly for each value relative to the mean: " + str(anomaly_list))
