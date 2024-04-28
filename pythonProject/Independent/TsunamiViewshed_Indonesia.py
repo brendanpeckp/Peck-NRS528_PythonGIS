@@ -52,7 +52,7 @@ print("The temporary directory is named " + str(Temporary_Directory))
 # Set local variables
 Countries_Polygons = "IndonesiaCountries_DGM95UTMz50S.shp"
 Countries_Raster = r"Temp\Countries_Raster.tif"
-cellSize = 100000
+cellSize = 10000
 field = "COUNTRY"
 
 # Run FeatureToRaster and describe output
@@ -141,7 +141,7 @@ end_preperation_time = time.time()
 ############
 start_viewpoints_and_viewshed_loop_time = time.time()
 
-for iteration in range(3):
+for iteration in range(1000):
     # unique ID
     unique_id = iteration
     print("Start " + str(unique_id))
@@ -291,35 +291,30 @@ raster_objects = []
 ### create a for loop that removes the first raster object, then adds the second to the removed, then the next iteration
 ### and on and on.
 for raster in rasters:
-    #### Create raster objects. These are data types that can be added together directly.
-    a_raster_object = arcpy.sa.Raster(raster)
-    #### append to the empty raster_objects list that you prior created
-    raster_objects.append(raster_objects)
-    print("INSIDE LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
-    #### the method of "pop(integer) will take an object as specified by the integer from a list and "pop it out", in
-    #### other words, it will remove the object and return it to you.
-    #### This method will be used on raster_objects.
-    #### Assign it a variable in order to call it many times in the loop. We are going to add all rasters to the popped raster.
-    sum_raster_objects = raster_objects.pop(0)
-    print("INSIDE LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
-### check the loop!
-print("AFTER LOOP a_raster_object name and type: " + str(a_raster_object) + str(type(a_raster_object)))
-print("AFTER LOOP sum_raster_objects is: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
-### create a for loop that directly adds all of the raster objects together.
-for object in raster_objects:
-    print(object)
-    sum_raster_objects = sum_raster_objects + object
-# sum_raster_objects.save("combined_raster_nonbinary")
-# print("sum_raster_objects is and is type of: " + str(sum_raster_objects) + str(type(sum_raster_objects)))
+    rasterObj = arcpy.sa.Raster(raster)
+    raster_objects.append(rasterObj)
 
+sumRasterObj = raster_objects.pop(0)
 
+for obj in raster_objects:
+    sumRasterObj = sumRasterObj + obj
+
+print(sumRasterObj)
+sumRasterObj.save('sumRaster.img')
 
 start_final_output_time = time.time()
 end_viewpoints_and_viewshed_loop_time = time.time()
 
 # Create a final viewshed output layer.
+combined_binary = Test('sumRaster.img', 'VALUE > 0')
+print(combined_binary)
 
-# Clean up directories
+workspace
+print(workspace)
+
+Final_Viewshed = Plus(r'Temp\Land1_ElseNull.tif', r'binary_expanded_viewsheds\Test_sumRaster1.tif')
+print("Final Viewshed is " + str(Final_Viewshed))
+Final_Viewshed.save('Final_Viewshed.tif')
 
 # run times
 preperation_time = end_preperation_time - start_time
@@ -328,6 +323,6 @@ viewpoints_and_viewshed_loop_time = end_viewpoints_and_viewshed_loop_time - star
 print("Viewpoints and viewsheds loop took " + str(viewpoints_and_viewshed_loop_time) + " seconds to run.")
 end_time = time.time()
 final_output_time = end_time - start_final_output_time
-# print("Final output took " + str(final_output_time) + " seconds to run.")
-# run_time = end_time - start_time
-# print("It took " + str(run_time) + "seconds to run the script.")
+print("Final output took " + str(final_output_time) + " seconds to run.")
+run_time = end_time - start_time
+print("It took " + str(run_time) + "seconds to run the script.")
