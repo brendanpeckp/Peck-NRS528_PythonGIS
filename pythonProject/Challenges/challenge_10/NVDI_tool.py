@@ -17,48 +17,37 @@
 ## Step 2 from class goes over numpy. It may be more direct for subtraction of cell values. (rather than Raster Calculator)
 
 # SETUP
-import arcpy, os
-arcpy.CheckOutExtension("Spatial")
-arcpy.env.overwriteOutput = True
-arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_10"
-defalt_workspace = arcpy.env.workspace
-
-# create final output directory
-if os.path.exists('NVDI_Directory'):
-    print("NVDI_Directory created successfully!")
-else:
-    os.makedirs('NVDI_Directory')
+import arcpy, os # arcpy for ListRasters and os for everything else
+arcpy.CheckOutExtension("Spatial") # make sure that we have all the ability to work with rasters
+arcpy.env.overwriteOutput = True # We want to overwrite the outputs
+arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_10" # The absolute workspace
+defalt_workspace = arcpy.env.workspace # I can call the workspace later and change it
 
 imagery_directories = os.listdir('imagery')
 print(imagery_directories)
 
-imagery_workspace = defalt_workspace + r"\imagery"
+imagery_workspace = os.path.join(defalt_workspace, 'imagery')
 print(imagery_workspace)
 
 for directory in imagery_directories:
-    directory_workspace = imagery_workspace + directory
-    print(directory_workspace)
-#     rasters = arcpy.ListRasters()
-#     print(rasters)
+    unique_id = directory
+    #### AD - os.path.join again
+    directory_workspace = os.path.join(imagery_workspace, directory)
+    arcpy.env.workspace = directory_workspace
+    rasters = arcpy.ListRasters()
+    print(rasters)
 
-# # first write a code to take NVDI for one month
-# arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_10\201502"
-#
-# band_list = arcpy.ListRasters()
-# print(band_list)
-#
-# band_list = band_list[5:7]
-# print(band_list)
-#
-# print(band_list[0])
-# print(band_list[1])
-#
-# inBand4 = arcpy.Raster(band_list[0])
-# lowerLeft = arcpy.Point(inBand4.extent.XMin,inBand4.extent.YMin)
-# cellSize = inBand4.meanCellWidth
-# array4 = arcpy.RasterToNumPyArray(inBand4, nodata_to_value=0)
-#
-# print(array4.shape)
-#
-# newRaster = arcpy.NumPyArrayToRaster(array4, lowerLeft, cellSize, value_to_nodata=0)
-# newRaster.save("test.tif")
+    #### AD - Here's how I would find B4 and B5 file, listrasters returns a list, hence [0], I am assuming
+    #### only one file called b4 in there.
+    raster_b4 = arcpy.Raster(arcpy.ListRasters("*b4*")[0])
+    raster_b5 = arcpy.Raster(arcpy.ListRasters("*b5*")[0])
+
+    #### AD - by converting b4/b5 to an arcpy.Raster object, I can do math on it, without using rastercalculator.
+    nvdi = (raster_b5 - raster_b4) / (raster_b5 + raster_b4)
+    nvdi_raster = arcpy.Raster(nvdi)
+    print(nvdi_raster)
+    nvdi_raster.save(f'ndvi_raster_{unique_id}.tif')
+
+
+
+
