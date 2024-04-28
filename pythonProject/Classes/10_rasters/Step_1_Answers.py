@@ -25,6 +25,7 @@ for raster in raster_list:
     file_name = raster[:6] + "_out.dbf"
     arcpy.gp.ZonalStatisticsAsTable_sa("Biogeography_Made_Up.shp", "Area", raster, file_name, "DATA",
                                        "ALL")
+print(raster_list)
 
 # Pulling values from a raster using a point shapefule is also pretty easy, this time, we use the Extract Values tool.
 
