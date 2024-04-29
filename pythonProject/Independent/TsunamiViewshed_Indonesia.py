@@ -141,7 +141,7 @@ end_preperation_time = time.time()
 ############
 start_viewpoints_and_viewshed_loop_time = time.time()
 
-for iteration in range(1000):
+for iteration in range(100):
     # unique ID
     unique_id = iteration
     print("Start " + str(unique_id))
