@@ -11,7 +11,7 @@ print('...')
 # SET WORKSPACE
 # Change the below to your own workspace.
 ######################################################################################
-arcpy.env.workspace = r'C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_09'
+arcpy.env.workspace = r'H:\NRS528_2024\Brendan_Peck\pythonProject\Challenges\challenge_09'
 ######################################################################################
 workspace = arcpy.env.workspace
 print("Workspace directory: " + workspace)
