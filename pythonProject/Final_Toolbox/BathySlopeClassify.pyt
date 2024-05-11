@@ -40,9 +40,6 @@ class BSTool(object):
         output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
         params.append(output)
 
-        output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
-        params.append(output)
-
         return params
 
     def isLicensed(self):
