@@ -40,12 +40,6 @@ class BSTool(object):
         output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
         params.append(output)
 
-        mosaic_message = arcpy.Parameter(name="mosaic_message",
-                                 displayName="Successfully created mosaic raster!",
-                                 datatype="GPRasterLayer",
-                                 parameterType="Derived",  # Required|Optional|Derived
-                                 direction="Output",  # Input|Output
-                                 )
         output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
         params.append(output)
 
@@ -69,8 +63,7 @@ class BSTool(object):
     def execute(self, parameters, messages):
         """The source code of the tool."""
         input_folder = parameters[0].valueAsText
-        mosaic_message = parameters[1].valueAsText
-        output = parameters[2].valueAsText
+        output = parameters[1].valueAsText
 
         arcpy.env.workspace = input_folder
         workspace = arcpy.env.workspace

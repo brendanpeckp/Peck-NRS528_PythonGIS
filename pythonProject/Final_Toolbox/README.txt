@@ -1,7 +1,6 @@
-This toolbox takes in several  overlapping images from bands 10 and 11 (thermal bands) of the LandSat-9 database,
-makes an image from the average of the images. It projects the final image Then, it clips the average image to a study
-area.
-
-This tool's purpose is to create a representative thermal map of a study area. To use this tool you must first decide
-your study area and criteria for thermal data. For example your criteria could be: All LandSat-9 band 10 and 11 records
-for "study area" during daytime in July for the last 10 years.
+This toolbox takes in  a folder of 32-bit signed bathymetric tile rasters and allows the user to name the output as its
+inputs. Then, it mosaics the tiles to a single raster image file, finds slope for the raster, and outputs a reclassified
+raster. The reclassification runs as follows: A slope grade of 0 to 22.5 is given a value of 1, 22.5 to 45 is given a
+value of 2, and values from 45 to 90 receive a 0. The purpose of the tool is to classify bathymetric slopes that may
+produce more dangerous tsunami run-ups. Shallow slopes are known to build tsunami run-ups, moderate slopes build run-up
+more severely, and very steep slope dampen runup. Higher values in this reclassification correspond with more risk.
