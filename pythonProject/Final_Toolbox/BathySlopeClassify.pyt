@@ -81,7 +81,6 @@ class BSTool(object):
          'LAST', '')
         mosaic = arcpy.Raster(mosaic)
         print(mosaic)
-        mosaic_message
 
         # Process: Slope (Slope) (3d)
         slope = arcpy.ddd.Slope('mosaicBathy.img', 'slope.img', 'DEGREE', 1, 'PLANAR', 'METER', 'GPU_THEN_CPU')
