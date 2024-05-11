@@ -22,16 +22,22 @@ class BSTool(object):
     def getParameterInfo(self):
         """Define parameter definitions"""
         params = []
-        input_tiles = arcpy.Parameter(name="input_tiles",
+        input_folder = arcpy.Parameter(name="input_folder",
                                      displayName="Input tiles",
-                                     datatype="DERasterDataset",
+                                     datatype="DEFolder",
                                      parameterType="Required",  # Required|Optional|Derived
                                      direction="Input",  # Input|Output
                                      )
-        input_tiles.value = ['ncei13_s14x00_w170x00_2021v1.tif', 'ncei13_s14x00_w170x25_2021v1.tif', 'ncei13_s14x00_w170x50_2021v1.tif', 'ncei13_s14x25_w170x00_2021v1.tif', 'ncei13_s14x25_w170x25_2021v1.tif', 'ncei13_s14x25_w170x50_2021v1.tif']  # This is a default value that can be over-ridden in the toolbox
-        params.append(input_tiles)
+        input_folder.value = 'C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData'  # This is a default value that can be over-ridden in the toolbox
+        params.append(input_folder)
 
-        output.value = r"C:\Course_ArcGIS_Python\Classes\11_Toolboxes\Step_2_Data\Output.shp"  # This is a default value that can be over-ridden in the toolbox
+        output = arcpy.Parameter(name="bathyGradeClasses.img",
+                                 displayName="bathyGradeClasses.img",
+                                 datatype="GPRasterLayer",
+                                 parameterType="Required",  # Required|Optional|Derived
+                                 direction="Output",  # Input|Output
+                                 )
+        output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
         params.append(output)
         return params
 
@@ -52,8 +58,12 @@ class BSTool(object):
 
     def execute(self, parameters, messages):
         """The source code of the tool."""
-        input_tiles = parameters[0].valueAsText
+        input_folder = parameters[0].valueAsText
         output = parameters[1].valueAsText
+
+        arcpy.env.workspace = input_folder
+        workspace = arcpy.env.workspace
+        arcpy.env.overwriteOutput = True
 
         inBathy = []
         rasters = arcpy.ListRasters("*", "TIF")
@@ -74,10 +84,10 @@ class BSTool(object):
         print(slope)
 
         # Process: Reclassify (Reclassify) (3d)
-        remap = RemapRange([[0, 22.5, 1], [22.5, 45, 2], [45, 90, 0]])
+        remap = arcpy.sa.RemapRange([[0, 22.5, 1], [22.5, 45, 2], [45, 90, 0]])
         reclassify = arcpy.sa.Reclassify('slope.img', 'VALUE', remap, 'NODATA')
         reclassify = arcpy.Raster(reclassify)
-        reclassify.save('bathyGradeClasses.img')
+        reclassify.save(output)
         print(reclassify)
 
         return
