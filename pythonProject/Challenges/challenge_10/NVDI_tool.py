@@ -11,11 +11,6 @@
     ## create a NVDI image by subtracting 4 from five
     ## save the created NVDI to the final output directory
 
-# Overview of possible tools:
-## arcpy.CheckOutExtension("Spatial") This may be useful to make sure arcpy works correctly
-## arcpy.ListRasters() This will create a list of rasters inside of a directory.
-## Step 2 from class goes over numpy. It may be more direct for subtraction of cell values. (rather than Raster Calculator)
-
 # SETUP
 import arcpy, os # arcpy for ListRasters and os for everything else
 arcpy.CheckOutExtension("Spatial") # make sure that we have all the ability to work with rasters
@@ -30,19 +25,20 @@ imagery_workspace = os.path.join(defalt_workspace, 'imagery')
 print(imagery_workspace)
 
 for directory in imagery_directories:
-    unique_id = directory
-    #### AD - os.path.join again
-    directory_workspace = os.path.join(imagery_workspace, directory)
-    arcpy.env.workspace = directory_workspace
+    unique_id = directory # Unique id to give unique names to the outfiles as to not overwrite them
+    directory_workspace = os.path.join(imagery_workspace, directory) # os.path.join to move the workspace into
+    # appropriate directories as it iterates.
+    arcpy.env.workspace = directory_workspace # execute the above line.
     rasters = arcpy.ListRasters()
     print(rasters)
 
-    #### AD - Here's how I would find B4 and B5 file, listrasters returns a list, hence [0], I am assuming
-    #### only one file called b4 in there.
+    # For each iteration, the following script will be inside another directory. This will list rasters of the bands of
+    # interest. These lists can be used later to do math with.
     raster_b4 = arcpy.Raster(arcpy.ListRasters("*b4*")[0])
     raster_b5 = arcpy.Raster(arcpy.ListRasters("*b5*")[0])
 
-    #### AD - by converting b4/b5 to an arcpy.Raster object, I can do math on it, without using rastercalculator.
+    # arcpy.Raster() allows pycharm to use the lists as raster objects. As raster objects, they may be put into
+    # equations to be worked with on a cell to cell basis.
     nvdi = (raster_b5 - raster_b4) / (raster_b5 + raster_b4)
     nvdi_raster = arcpy.Raster(nvdi)
     print(nvdi_raster)
