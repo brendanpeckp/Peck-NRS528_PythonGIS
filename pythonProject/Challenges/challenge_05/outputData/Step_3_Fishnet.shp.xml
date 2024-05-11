@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20240511</CreaDate><CreaTime>16284300</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files\arcgis\pro\Resources\ArcToolbox\toolboxes\Data Management Tools.tbx\CreateFishnet" Date="20240511" Time="162843">CreateFishnet outputData\Step_3_Fishnet.shp "-82 36.79312" "-82 59.4333" 0.25 0.25 # # "-50.45 59.4333" NO_LABELS # Polygon</Process></lineage></DataProperties></Esri></metadata>

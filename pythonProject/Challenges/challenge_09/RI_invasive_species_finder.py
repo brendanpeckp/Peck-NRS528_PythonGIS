@@ -81,11 +81,11 @@ print("PART THREE; CREATE SHAPEFILES FOR RECORDS WITH AND WITHOUT PHOTOS")
 print('...')
 
 # With photos
-points_with_photos = 'points_with_photos.shp'
+points_with_photos = r'outputData\points_with_photos.shp'
 
 arcpy.analysis.Select(inputShapefile, points_with_photos, "photo = 'y'")
 
 # without photos
-points_without_photos = 'points_without_photos.shp'
+points_without_photos = r'outputData\points_without_photos.shp'
 
 arcpy.analysis.Select(inputShapefile, points_without_photos, "photo = ' '")

@@ -21,12 +21,12 @@ arcpy.env.overwriteOutput = True
 
 arcpy.env.workspace = r"C:\Peck_NRS528_PythonGIS\pythonProject\Challenges\challenge_05"
 
-in_Table = os.path.join(r"Step_3_Cepphus_grylle.csv")
+in_Table = r"Step_3_Cepphus_grylle.csv"
 x_coords = "lon"
 y_coords = "lat"
 z_coords = ""
-out_Layer = os.path.join("Cepphus_grylle_output_layer_ram") # saved in ram (ram will auto delete)
-saved_Layer = os.path.join(r"Cepphus_grylle_output_layer_harddrive.shp") # saved on harddrive
+out_Layer = "Cepphus_grylle_output_layer_ram" # saved in ram (ram will auto delete)
+saved_Layer = r"Cepphus_grylle_output_layer_harddrive.shp" # saved on harddrive
 # create arguements for the x, y event layer tool
 
 spRef = arcpy.SpatialReference(4326)  # 4326 == WGS 1984
