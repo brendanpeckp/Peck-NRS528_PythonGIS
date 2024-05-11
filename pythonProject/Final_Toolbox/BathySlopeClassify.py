@@ -62,7 +62,7 @@ class BSTool(object):
         """Define parameter definitions"""
         params = []
         input_folder = arcpy.Parameter(name="input_folder",
-                                     displayName="Input tiles",
+                                     displayName="Bathymetric Tile Folder",
                                      datatype="DEFolder",
                                      parameterType="Required",  # Required|Optional|Derived
                                      direction="Input",  # Input|Output
@@ -70,14 +70,24 @@ class BSTool(object):
         input_folder.value = 'C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData'  # This is a default value that can be over-ridden in the toolbox
         params.append(input_folder)
 
-        output = arcpy.Parameter(name="bathyGradeClasses.img",
-                                 displayName="bathyGradeClasses.img",
+        output = arcpy.Parameter(name="bathyGradeClasses",
+                                 displayName="Reclassed Bathymetric Raster",
                                  datatype="GPRasterLayer",
                                  parameterType="Required",  # Required|Optional|Derived
                                  direction="Output",  # Input|Output
                                  )
         output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
         params.append(output)
+
+        mosaic_message = arcpy.Parameter(name="mosaic_message",
+                                 displayName="Successfully created mosaic raster!",
+                                 datatype="GPRasterLayer",
+                                 parameterType="Derived",  # Required|Optional|Derived
+                                 direction="Output",  # Input|Output
+                                 )
+        output.value = r"C:\Peck_NRS528_PythonGIS\pythonProject\Final_Toolbox\exampleData\mosaicBathy.img"  # This is a default value that can be over-ridden in the toolbox
+        params.append(output)
+
         return params
 
     def isLicensed(self):
@@ -98,7 +108,8 @@ class BSTool(object):
     def execute(self, parameters, messages):
         """The source code of the tool."""
         input_folder = parameters[0].valueAsText
-        output = parameters[1].valueAsText
+        mosaic_message = parameters[1].valueAsText
+        output = parameters[2].valueAsText
 
         arcpy.env.workspace = input_folder
         workspace = arcpy.env.workspace
@@ -116,6 +127,7 @@ class BSTool(object):
          'LAST', '')
         mosaic = arcpy.Raster(mosaic)
         print(mosaic)
+        print(mosaic_message)
 
         # Process: Slope (Slope) (3d)
         slope = arcpy.ddd.Slope('mosaicBathy.img', 'slope.img', 'DEGREE', 1, 'PLANAR', 'METER', 'GPU_THEN_CPU')
@@ -139,3 +151,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# [[0, 22.5, 1], [22.5, 45, 2], [45, 90, 0]]
